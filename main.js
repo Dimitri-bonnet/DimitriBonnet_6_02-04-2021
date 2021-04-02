@@ -1,3 +1,5 @@
+/* import './js/modal' */
+
 console.log('ici')
 
 const _urlApi =  'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeDataFR.json'

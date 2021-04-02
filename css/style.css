@@ -6,6 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 *,
 *::after,
 *::before {
@@ -101,6 +102,16 @@
   color: black;
 }
 
+.btnStickyTop {
+  display: block;
+  position: sticky;
+  top: 0;
+}
+.btnStickyTop button {
+  background: #D3573C;
+  padding: 5px;
+}
+
 .btnLabel {
   background: none;
   border-radius: 20px;
@@ -108,6 +119,7 @@
   padding: 2px 8px;
   color: #901c1c;
   font-size: 10px;
+  margin: 3px;
   cursor: pointer;
 }
 .btnLabel:hover {
@@ -226,9 +238,12 @@
 /* BTN LABEL */
 /* BREAKPOINT */
 .photographer {
-  width: 30vw;
-  min-width: 300px;
+  /* background: chocolate; */
+  width: 28vw;
   margin: 5px;
+}
+.photographer .link {
+  text-decoration: none;
 }
 .photographer__img {
   display: flex;
@@ -242,17 +257,14 @@
   border: 1px solid black;
 }
 .photographer__info {
-  width: 100%;
-  /*     background-color: blue; */
-  min-height: 110px;
+  /*    background-color: rebeccapurple; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
 }
 .photographer__info-name {
-  /* background-color: red; */
-  width: 300px;
+  /*   background-color: red; */
   font-size: 25px;
   color: #D3573C;
 }
@@ -273,6 +285,12 @@
   flex-wrap: wrap;
 }
 
+@media screen and (max-width: 580px) {
+  .photographer {
+    margin: 15px;
+    width: 100%;
+  }
+}
 /* COLORS */
 /* POLICE */
 /* BTN */
@@ -376,6 +394,44 @@
     max-height: 250px;
   }
 }
+/* COLORS */
+/* POLICE */
+/* BTN */
+/* BTN LABEL */
+/* BREAKPOINT */
+.bgGround {
+  /* display: none; */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(236, 236, 236, 0.4);
+}
+.bgGround .modal {
+  background-color: chocolate;
+  position: relative;
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  height: 50%;
+  width: 50%;
+  overflow: auto;
+  margin: 5% auto;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+}
+
 /* Pages */
 /* COLORS */
 /* POLICE */
@@ -387,17 +443,9 @@
   min-height: 94vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: space-between;
 }
 
-@media screen and (max-width: 580px) {
-  .photographers {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
 /* COLORS */
 /* POLICE */
 /* BTN */
