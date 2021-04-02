@@ -2,7 +2,7 @@
 
  .photographer{
     width: 30vw;
-    min-width: 200px;
+    min-width: 300px;
     margin: 5px;
     &__img{
         display: flex;
@@ -16,14 +16,16 @@
         }
     }
     &__info{
-        height: 110px;
+        width: 100%;
+    /*     background-color: blue; */
+        min-height: 110px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-  
         &-name{
-            width: 200px;
+            /* background-color: red; */
+            width: 300px;
             font-size: 25px;
             color: $secondary;
         }
@@ -37,6 +39,11 @@
         &-price{
             color: $tertiary;
             font-size: 8px;
+        }
+        &-labels{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
     }
  }

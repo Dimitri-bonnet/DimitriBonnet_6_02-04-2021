@@ -1,18 +1,43 @@
-@import '../utils/variables';
+@import "../utils/variables";
 
-nav{
-    height: 6vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color:$primary;
+.topBar {
+  padding: 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  color: $primary;
+  height: 5vh;
+  &__brand {
+    
+  }
+  &__items {
     ul{
         display: flex;
         li{
-            text-decoration: none;
             list-style: none;
-            margin: 5px;
         }
     }
-
+  }
+  &__title {
+  }
+}
+@media screen and (max-width: $breakPointMobile) {
+  .topBar {
+      /* background-color: rebeccapurple; */
+      display: flex;
+      justify-content: center;
+      &__brand{
+          margin-right: 30px;
+      }
+      &__items{
+          margin: 10px;
+          order: 1;
+      }
+      &__title{
+          
+          font-size: 12px;
+      }
+      
+  }
 }

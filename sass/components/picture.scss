@@ -1,13 +1,10 @@
 @import "../utils/variables";
 
 .picture {
-   margin:30px 0;
-   min-width: 300px;
   &__img {
     img {
-      min-width: 300px;
-      height: 300px;
-      color: gray;
+      width: 28vw;
+      border-radius: 4px;
     }
   }
   &__info{
@@ -16,8 +13,22 @@
       align-items: center;
       color: $primary;
       &-info{
+        margin: 10px 0;
           display: flex;
           justify-content: space-between;
       }
+  }
+}
+@media screen and (max-width: $breakPointMobile) {
+  .picture{
+    margin: 0 15px;
+    &__img{
+      width: 100%;
+      max-height: 250px;
+      img{
+        width: 100%;
+        max-height: 250px;
+      }
+    }
   }
 }

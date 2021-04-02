@@ -9,8 +9,8 @@
 @import "./components/picture.scss";
 /* Pages */
 @import "./pages/photographers.scss";
-@import "./pages/selected-photgrapher.scss";
+@import "./pages/photgrapher.scss";
+
 body{
-    font-family: $police;
-   
+    font-family: $police;  
 }

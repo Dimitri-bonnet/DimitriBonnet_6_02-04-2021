@@ -188,22 +188,38 @@
 /* BTN */
 /* BTN LABEL */
 /* BREAKPOINT */
-nav {
-  height: 6vh;
+.topBar {
+  padding: 0 30px;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   color: #901c1c;
+  height: 5vh;
 }
-nav ul {
+.topBar__items ul {
   display: flex;
 }
-nav ul li {
-  text-decoration: none;
+.topBar__items ul li {
   list-style: none;
-  margin: 5px;
 }
-
+@media screen and (max-width: 580px) {
+  .topBar {
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center;
+  }
+  .topBar__brand {
+    margin-right: 30px;
+  }
+  .topBar__items {
+    margin: 10px;
+    order: 1;
+  }
+  .topBar__title {
+    font-size: 12px;
+  }
+}
 /* COLORS */
 /* POLICE */
 /* BTN */
@@ -211,7 +227,7 @@ nav ul li {
 /* BREAKPOINT */
 .photographer {
   width: 30vw;
-  min-width: 200px;
+  min-width: 300px;
   margin: 5px;
 }
 .photographer__img {
@@ -226,14 +242,17 @@ nav ul li {
   border: 1px solid black;
 }
 .photographer__info {
-  height: 110px;
+  width: 100%;
+  /*     background-color: blue; */
+  min-height: 110px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 .photographer__info-name {
-  width: 200px;
+  /* background-color: red; */
+  width: 300px;
   font-size: 25px;
   color: #D3573C;
 }
@@ -248,6 +267,11 @@ nav ul li {
   color: #525252;
   font-size: 8px;
 }
+.photographer__info-labels {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 /* COLORS */
 /* POLICE */
@@ -261,8 +285,9 @@ nav ul li {
   padding: 30px;
 }
 .photographerBanner__info {
-  height: 120px;
-  /*  background-color: blue; */
+  /* background-color: blue; */
+  min-height: 120px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -281,19 +306,31 @@ nav ul li {
   font-size: 10px;
   color: #525252;
 }
+.photographerBanner__info-labels {
+  display: flex;
+  flex-wrap: wrap;
+}
 .photographerBanner__img {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
 }
 .photographerBanner__img img {
   width: auto;
-  height: 120px;
+  height: 80px;
   border-radius: 50%;
   border: 1px solid black;
 }
 
 @media screen and (max-width: 580px) {
+  .photographerBanner {
+    background: none;
+  }
+  .photographerBanner__info-name button {
+    display: none;
+  }
+
   .photographerBanner__info-name button {
     position: absolute;
     bottom: 10px;
@@ -310,14 +347,9 @@ nav ul li {
 /* BTN */
 /* BTN LABEL */
 /* BREAKPOINT */
-.picture {
-  margin: 30px 0;
-  min-width: 300px;
-}
 .picture__img img {
-  min-width: 300px;
-  height: 300px;
-  color: gray;
+  width: 28vw;
+  border-radius: 4px;
 }
 .picture__info {
   display: flex;
@@ -326,10 +358,24 @@ nav ul li {
   color: #901c1c;
 }
 .picture__info-info {
+  margin: 10px 0;
   display: flex;
   justify-content: space-between;
 }
 
+@media screen and (max-width: 580px) {
+  .picture {
+    margin: 0 15px;
+  }
+  .picture__img {
+    width: 100%;
+    max-height: 250px;
+  }
+  .picture__img img {
+    width: 100%;
+    max-height: 250px;
+  }
+}
 /* Pages */
 /* COLORS */
 /* POLICE */
@@ -358,25 +404,79 @@ nav ul li {
 /* BTN LABEL */
 /* BREAKPOINT */
 .containerPhotographerSelected {
-  padding: 40px;
+  padding: 0 40px;
   min-height: 94vh;
 }
+.containerPhotographerSelected__brand {
+  margin: 10px 0;
+}
 .containerPhotographerSelected__sort {
-  padding: 10px;
+  padding: 10px 0;
   display: flex;
   align-items: center;
 }
 .containerPhotographerSelected__imgs {
+  padding: 10px 0;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
+.stickyBanner {
+  position: sticky;
+  float: right;
+  bottom: 0;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #D3573C;
+  height: 40px;
+  padding: 10px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.stickyBanner__like {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.stickyBanner__price {
+  display: flex;
+}
+
+.stickyBtn {
+  position: sticky;
+  bottom: 10px;
+  text-align: center;
+}
+.stickyBtn button {
+  padding: 5px 14px;
+}
+
+@media screen and (min-width: 580px) {
+  .stickyBtn {
+    display: none;
+  }
+}
 @media screen and (max-width: 580px) {
+  .containerPhotographerSelected {
+    padding: 0;
+  }
+  .containerPhotographerSelected__brand {
+    margin: 30px 0px 0px 30px;
+  }
+  .containerPhotographerSelected__sort {
+    display: none;
+  }
   .containerPhotographerSelected__imgs {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .stickyBanner {
+    display: none;
   }
 }
 body {

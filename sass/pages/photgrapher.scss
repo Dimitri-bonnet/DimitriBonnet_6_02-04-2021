@@ -1,0 +1,74 @@
+@import "../utils/variables";
+
+.containerPhotographerSelected {
+  padding: 0 40px;
+  min-height: 94vh;
+  &__brand {
+    margin: 10px 0;
+  }
+  &__sort {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  &__imgs {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+.stickyBanner {
+  position: sticky;
+  float: right;
+  bottom: 0;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  background-color: $secondary;
+  height: 40px;
+  padding: 10px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  &__like {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  &__price {
+    display: flex;
+  }
+}
+.stickyBtn{
+    position: sticky;
+    bottom: 10px;
+    text-align: center;
+    button{
+        padding: 5px 14px;
+    }
+}
+@media screen and  (min-width: $breakPointMobile) {
+    .stickyBtn{
+        display: none;
+    }
+}
+@media screen and (max-width: $breakPointMobile) {
+  .containerPhotographerSelected {
+    padding: 0;
+    &__brand {
+      margin: 30px 0px 0px 30px;
+    }
+    &__sort {
+      display: none;
+    }
+    &__imgs {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .stickyBanner {
+    display: none;
+  }
+}
