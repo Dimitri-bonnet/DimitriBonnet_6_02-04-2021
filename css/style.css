@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* COLORS */
+/* POLICE */
+/* BTN */
+/* BTN LABEL */
+/* BREAKPOINT */
+/* CSS like bootstrap */
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-5 {
+  padding: 2rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.my-2 {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.mx-2 {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mt-5 {
+  margin-top: 1.5rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.5rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Components */
+/* COLORS */
+/* POLICE */
+/* BTN */
+/* BTN LABEL */
+/* BREAKPOINT */
+.btn {
+  background: #901c1c;
+  color: white;
+  border: none;
+  padding: 14px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
+}
+.btn:hover {
+  background: #D3573C;
+  color: black;
+}
+.btn:focus {
+  background: #D3573C;
+  color: black;
+}
+
+.btnLabel {
+  background: none;
+  border-radius: 20px;
+  border: 1px solid #525252;
+  padding: 2px 8px;
+  color: #901c1c;
+  font-size: 10px;
+  cursor: pointer;
+}
+.btnLabel:hover {
+  background: #901c1c;
+  color: white;
+}
+.btnLabel:focus {
+  background: #901c1c;
+  color: white;
+}
+
+.dropDown {
+  position: relative;
+  z-index: 99;
+}
+.dropDown__btn {
+  background: #901c1c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
+}
+.dropDown__btn-main {
+  display: flex;
+  padding: 14px 12px;
+}
+.dropDown__btn-content {
+  display: none;
+  padding: 5px;
+}
+.dropDown__btn-content .item {
+  padding: 14px 12px;
+  text-align: left;
+  border-top: 1px solid white;
+  cursor: pointer;
+}
+.dropDown__btn:hover .dropDown__btn-content {
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown .dropbtn:hover, .dropdown .dropbtn:focus {
+  background-color: #D3573C;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  background: #901c1c;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+/* COLORS */
+/* POLICE */
+/* BTN */
+/* BTN LABEL */
+/* BREAKPOINT */
+nav {
+  height: 6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #901c1c;
+}
+nav ul {
+  display: flex;
+}
+nav ul li {
+  text-decoration: none;
+  list-style: none;
+  margin: 5px;
+}
+
+/* COLORS */
+/* POLICE */
+/* BTN */
+/* BTN LABEL */
+/* BREAKPOINT */
+.photographer {
+  width: 30vw;
+  min-width: 200px;
+  margin: 5px;
+}
+.photographer__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photographer__img img {
+  width: auto;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.photographer__info {
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.photographer__info-name {
+  width: 200px;
+  font-size: 25px;
+  color: #D3573C;
+}
+.photographer__info-country {
+  font-size: 12px;
+  color: #901c1c;
+}
+.photographer__info-tagline {
+  font-size: 10px;
+}
+.photographer__info-price {
+  color: #525252;
+  font-size: 8px;
+}
+
+/* COLORS */
+/* POLICE */
+/* BTN */
+/* BTN LABEL */
+/* BREAKPOINT */
+.photographerBanner {
+  display: flex;
+  justify-content: space-between;
+  background: #fafafa;
+  padding: 30px;
+}
+.photographerBanner__info {
+  height: 120px;
+  /*  background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.photographerBanner__info-name {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  color: #D3573C;
+}
+.photographerBanner__info-country {
+  font-size: 14px;
+  color: #901c1c;
+}
+.photographerBanner__info-tagline {
+  font-size: 10px;
+  color: #525252;
+}
+.photographerBanner__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photographerBanner__img img {
+  width: auto;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+@media screen and (max-width: 580px) {
+  .photographerBanner__info-name button {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 5px 8px;
+  }
+}
+/* COLORS */
+/* POLICE */
+/* BTN */
+/* BTN LABEL */
+/* BREAKPOINT */
+.picture {
+  margin: 30px 0;
+  min-width: 300px;
+}
+.picture__img img {
+  min-width: 300px;
+  height: 300px;
+  color: gray;
+}
+.picture__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #901c1c;
+}
+.picture__info-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Pages */
+/* COLORS */
+/* POLICE */
+/* BTN */
+/* BTN LABEL */
+/* BREAKPOINT */
+.photographers {
+  padding: 40px;
+  min-height: 94vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media screen and (max-width: 580px) {
+  .photographers {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* COLORS */
+/* POLICE */
+/* BTN */
+/* BTN LABEL */
+/* BREAKPOINT */
+.containerPhotographerSelected {
+  padding: 40px;
+  min-height: 94vh;
+}
+.containerPhotographerSelected__sort {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.containerPhotographerSelected__imgs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 580px) {
+  .containerPhotographerSelected__imgs {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */

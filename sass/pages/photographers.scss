@@ -1,0 +1,18 @@
+@import '../utils/variables';
+
+.photographers{
+    padding: 40px;
+    min-height: 94vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;  
+} 
+
+@media screen and (max-width:$breakPointMobile) {
+    .photographers{
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+    }
+  }

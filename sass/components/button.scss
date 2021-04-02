@@ -1,0 +1,109 @@
+@import "../utils/variables";
+
+.btn {
+  background: $primary;
+  color: white;
+  border: none;
+  padding: 14px 12px;
+  border-radius: $borderRadiusBtn;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
+  &:hover {
+    background: $secondary;
+    color: black;
+  }
+  &:focus {
+    background: $secondary;
+    color: black;
+  }
+}
+
+.btnLabel {
+  background: none;
+  border-radius: $borderRadiusBtnLabel;
+  border: 1px solid $tertiary;
+  padding: 2px 8px;
+  color: $primary;
+  font-size: 10px;
+  cursor: pointer;
+  &:hover {
+    background: $primary;
+    color: white;
+  }
+  &:focus {
+    background: $primary;
+    color: white;
+  }
+}
+
+.dropDown {
+    position: relative;
+    z-index: 99;
+  &__btn {
+    background: $primary;
+    color: white;
+    border: none;
+    border-radius: $borderRadiusBtn;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+   
+    &-main {
+      display: flex;
+      padding: 14px 12px;
+    }
+    &-content {
+      display: none;
+      padding: 5px;
+
+      .item {
+        padding: 14px 12px;
+        text-align: left;
+        border-top: 1px solid white;
+        cursor: pointer;
+      }
+    }
+    &:hover {
+      .dropDown__btn-content {
+        display: block;
+      }
+    }
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  .dropbtn {
+    &:hover,
+    &:focus {
+      background-color: $secondary;
+    }
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  background: $primary;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}

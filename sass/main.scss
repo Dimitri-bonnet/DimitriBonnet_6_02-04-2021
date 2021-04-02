@@ -1,0 +1,16 @@
+@import './base/reset';
+@import "./utils/variables";
+@import "./vendors/bootstrap";
+/* Components */
+@import "./components/button.scss";
+@import "./components/topbar.scss";
+@import "./components/photographer.scss";
+@import "./components/photographer-banner.scss";
+@import "./components/picture.scss";
+/* Pages */
+@import "./pages/photographers.scss";
+@import "./pages/selected-photgrapher.scss";
+body{
+    font-family: $police;
+   
+}

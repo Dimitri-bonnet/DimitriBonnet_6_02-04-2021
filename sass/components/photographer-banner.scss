@@ -1,0 +1,55 @@
+@import '../utils/variables';
+
+.photographerBanner{
+    display: flex;
+    justify-content: space-between;
+    background: rgb(250, 250, 250);
+    padding: 30px;
+    &__info{
+        height: 120px;
+       /*  background-color: blue; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &-name{
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+            color: $secondary;
+        }
+        &-country{
+            font-size: 14px;
+            color: $primary;
+        }
+        &-tagline{
+            font-size: 10px;
+            color: $tertiary;
+        }
+    }
+    &__img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: auto;
+            height: 120px;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+    }
+}
+@media screen and (max-width: $breakPointMobile) {
+    .photographerBanner__info-name{
+        button{
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 5px 8px;
+        }
+    }
+
+  }

@@ -1,0 +1,23 @@
+@import "../utils/variables";
+
+.picture {
+   margin:30px 0;
+   min-width: 300px;
+  &__img {
+    img {
+      min-width: 300px;
+      height: 300px;
+      color: gray;
+    }
+  }
+  &__info{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $primary;
+      &-info{
+          display: flex;
+          justify-content: space-between;
+      }
+  }
+}
