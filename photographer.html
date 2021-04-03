@@ -23,7 +23,7 @@
             <div class="photographerBanner__info">
                 <div class="photographerBanner__info-name">
                     <span class="mr-3">Kold Barkley</span>
-                    <button class="btn">Contactez-moi</button>
+                    <button class="btn modalOpen">Contactez-moi</button>
                 </div>
                 <span class="photographerBanner__info-country">Auckland, New Zealand</span>
                 <span class="photographerBanner__info-tagline">Photographe et réalisateur</span>
@@ -155,6 +155,41 @@
             </div>
         </div>
     </main>
+    <div class="bgGround">
+        <div class="modal">
+            <span class="modal__close"><i class="fas fa-times"></i></span>
+            <div class="modal__content">
+                <div class="modal__content-form">
+                    <h2>Contactez-moi</h2>
+                    <h2>Mimi Keel</h2>
+                    <form class="formContact" action="">
+                        <div class="formContact__item mt-2">
+                            <label for="">Prénom</label>
+                            <input type="text">
+                        </div>
+                        <div class="formContact__item mt-2">
+                            <label for="">Nom</label>
+                            <input type="text">
+                        </div>
+                        <div class="formContact__item mt-2">
+                            <label for="">Email</label>
+                            <input type="text">
+                        </div>
+                        <div class="formContact__item mt-2">
+                            <label for="">Votre message</label>
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="formContact__btn">
+                            <button class="btn my-2">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal__content-picture">
+
+                </div> -->
+            </div>
+        </div>
+    </div>
     <div class="stickyBanner">
         <div class="stickyBanner__like">
             <p class="mr-2">298 045</p>
@@ -165,9 +200,11 @@
             <p> / jour</p>
         </div>
     </div>
-    <div class="stickyBtn">
+    <div class="stickyBtn ">
         <button class="btn">Contatez moi</button>
     </div>
+
+    <script type="text/javascript" src="main.js" charset="utf-8"></script>
 </body>
 
 </html>

@@ -133,7 +133,7 @@
 
 .dropDown {
   position: relative;
-  z-index: 99;
+  z-index: 1;
 }
 .dropDown__btn {
   background: #901c1c;
@@ -400,36 +400,59 @@
 /* BTN LABEL */
 /* BREAKPOINT */
 .bgGround {
-  /* display: none; */
+  display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
   background-color: rgba(236, 236, 236, 0.4);
 }
 .bgGround .modal {
-  background-color: chocolate;
-  position: relative;
   position: absolute;
-  z-index: 4;
-  left: 0;
-  top: 0;
-  height: 50%;
-  width: 50%;
-  overflow: auto;
-  margin: 5% auto;
-  max-width: 500px;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
-  background: #232323;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  padding-top: 10px;
+  z-index: 6;
+  background: #D3573C;
+  border-radius: 4px;
+  min-width: 300px;
+  width: 30vw;
+  /* height: 500px; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bgGround .modal__close {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+.bgGround .modal__content-form {
+  padding: 20px;
+}
+.bgGround .modal__content-form h2 {
+  font-size: 30px;
+}
+.bgGround .modal__content-form .formContact__item {
+  display: flex;
+  flex-direction: column;
+}
+.bgGround .modal__content-form .formContact__item label {
+  font-size: 20px;
+}
+.bgGround .modal__content-form .formContact__item input {
+  height: 35px;
+  border-radius: 4px;
+  border: none;
+}
+.bgGround .modal__content-form .formContact__item textarea {
+  border-radius: 4px;
+  border: none;
+}
+.bgGround .modal__content-form .formContact__btn button {
+  padding: 14px 18px;
 }
 
 /* Pages */
