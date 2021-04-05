@@ -12,25 +12,29 @@
   .modal {
     position: absolute;
     z-index: 6;
-    background: $secondary;
     border-radius: 4px;
     min-width: 300px;
-    width: 30vw;
-    /* height: 500px; */
+    width: 40vw;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     &__close {
       font-size: 30px;
-      color: white;
       position: absolute;
       right:20px;
       top: 20px;
       cursor: pointer;
     }
+    .contact{
+      color: white;
+    }
+    .pictures{
+      color: $primary;
+    }
     &__content {
       &-form {
         padding: 20px;
+        background: $secondary;
         h2{
             font-size: 30px;
         }
@@ -56,6 +60,27 @@
                   padding: 14px 18px;
               }
           }
+        }
+      }
+      &-picture{
+        padding: 20px;
+        background: white;
+        .carouselPictures{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+         &__chevron{
+           color: $primary;
+           font-size: 25px;
+           cursor: pointer;
+           margin: 20px;
+         }
+         &__pictures{
+          img{
+            min-width: 200px;
+            width: 30vw;
+          }
+         }
         }
       }
     }

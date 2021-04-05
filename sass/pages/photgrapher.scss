@@ -5,6 +5,9 @@
   min-height: 94vh;
   &__brand {
     margin: 10px 0;
+    img{
+      width: 180px;
+    }
   }
   &__sort {
     padding: 10px 0;

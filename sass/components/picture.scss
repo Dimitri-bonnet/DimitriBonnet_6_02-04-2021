@@ -1,7 +1,9 @@
 @import "../utils/variables";
 
 .picture {
+  
   &__img {
+    cursor: pointer;
     img {
       width: 28vw;
       border-radius: 4px;

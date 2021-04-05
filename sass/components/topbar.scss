@@ -9,7 +9,10 @@
   color: $primary;
   height: 5vh;
   &__brand {
-    
+    img{
+      width: 180px;
+    }
+   
   }
   &__items {
     ul{

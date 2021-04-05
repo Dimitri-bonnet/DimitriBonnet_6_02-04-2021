@@ -15,7 +15,7 @@
         &-name{
             display: flex;
             align-items: center;
-            font-size: 30px;
+            font-size: 20px;
             color: $secondary;
         }
         &-country{
@@ -49,6 +49,7 @@
         background: none;
         &__info{
             &-name{
+                font-size: 15px;
                 button{
                     display:none;
                 }
