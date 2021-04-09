@@ -1,4 +1,55 @@
 /* import './js/modal' */
+
+const _urlApi =  'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeDataFR.json'
+
+const fetchPhotographers = async () => {
+    const response = await fetch(_urlApi);
+    const data = await response.json()
+    /* Photographers */
+    const photographers = data['photographers'];
+    console.log(photographers.length)
+    photographers.forEach(function(photographerData){
+        const photographer = new Photographer;
+        photographer.id = photographerData.id;
+        photographer.name = photographerData.name;
+        photographer.portrait = photographerData.portrait;
+        photographer.country = photographerData.country;
+        photographer.city = photographerData.city;
+        photographer.price = photographerData.price;
+        photographer.tagline = photographerData.tagline;
+        photographer.tags = photographerData.tags;
+        photographer.medias = ''; 
+    }) 
+    const photgraphersList = []
+  
+    photgraphersList.push(photographers)
+    console.log(photgraphersList)
+    for(let i=0; i < photographers.length; i++){
+        console.log('test');   
+    }
+    /* Pictures */
+        //TODO récuperer les medias des photgraphes en fonction de l'id 
+    const pictures = data['media'];
+    pictures.forEach(function(pictureData){
+        const media = new Media
+       /*  console.log(media)
+        console.log(pictureData.photographerId) */
+        const picturePhotographerId = pictureData.photographerId;
+        /* console.log(picturePhotographerId); */
+        const picturePhotographerTag = pictureData.tags;
+        /* console.log(picturePhotographerTag); */
+    })
+}
+fetchPhotographers();
+//TODO Faire une boucle pour intégrer les photgraphes avec photographers.lenght
+
+
+class Homepage {
+    constructor(photographers){
+    photographers = [] 
+    console.log(photographers)
+    }  
+}
  class Photographer {
     constructor(id, name, portrait, country, city, price, tagline, tags, medias){
         this.id = id
@@ -10,16 +61,7 @@
         this.tagline = tagline
         this.tags = tags
         this.medias = medias
-    }
- /*    id:number;
-    name:string;
-    portrait:string;
-    country:string;
-    city:string;
-    price: number;
-    tagline:string;
-    tags:Array<string>;
-    picures:Array<Media>; */
+    }   
 }
  class Media {
     constructor(photographerID, img,video, tags, likes, date){
@@ -31,87 +73,31 @@
         this.date = date
     }
 }
-/* FETCH JSON FILE */
-const _urlApi =  'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeDataFR.json'
-const fetchPhotographers = async () => {
-    const response = await fetch(_urlApi);
-    const data = await response.json()
-    /* Photographers */
-    const photographers = data['photographers'];
-    photographers.forEach(function(photographer){
-       /*  console.log(photographer) */
-        const photographerId = photographer.id;
-        console.log(photographerId );
-        const photographerName = photographer.name;
-        console.log(photographerName);
-        const photographerImg = photographer.portrait;
-        console.log(photographerImg);
-        const photographerCountry = photographer.country;
-        console.log(photographerCountry);
-        const photographerCity = photographer.city
-        console.log(photographerCity);
-        const photographerPrice = photographer.price;
-        console.log(photographerPrice);
-        const photographerTagline = photographer.tagline;
-        console.log(photographerTagline);
-        photographer.tags.forEach(function(tag){
-            const photographerTags = tag
-            console.log(photographerTags)
-        })   
-    }) 
-    /* Pictures */
-    const pictures = data['media'];
-    pictures.forEach(function(picture){
-        const picturePhotographerId = picture.photographerId;
-        console.log(picturePhotographerId);
-        const picturePhotographerTag = picture.tags;
-        console.log(picturePhotographerTag);
-    })
-}
-fetchPhotographers();
-
 /* MODAL */
 /* Dom elements */
 const modal = document.querySelector(".bgGround");
-const clossModal = document.querySelector(".modal__close");
+const clossModal = document.querySelectorAll(".modal__close");
 const contentModalForm = document.querySelector(".modal__content-form");
 const contentModalPicture = document.querySelector(".modal__content-picture");
 const openModalPicutre = document.querySelectorAll(".modalOpenPicture");
 const openModalForm = document.querySelectorAll(".modalOpenForm");
-
-/* Open modal with multiple button */
-const lauchModal = () => {
-    modal.style.display = "block"
-    if( openModalForm){
+/* OpenModal */
+const lauchModal = (e) => {
+    modal.style.display = "block";
+      if(e.target.classList.contains('modalOpenForm')){
         contentModalPicture.style.display = "none";
+        contentModalForm.style.display = "block";
         console.log('openModalForm');
-    } else if (openModalPicutre){
+    } else if (e.target.classList.contains('modalOpenPicture')) {
         contentModalForm.style.display = "none";
+        contentModalPicture.style.display =" block";
         console.log('openModalPicture');
     }
 }
-openModalPicutre.forEach((btn) => btn.addEventListener("click", lauchModal))
+openModalPicutre.forEach((btn) => btn.addEventListener("click", lauchModal));
 openModalForm.forEach((btn) => btn.addEventListener("click", lauchModal));
 /* Close modal */
 const closeModal = () => {
-    console.log('closemodal')
-    modal.style.display = "none"
+    modal.style.display = "none";
 }
-clossModal.addEventListener("click", closeModal)
-
-/* DROPDOWN FILTER */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-window.onclick = function(event) {
-if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-    var openDropdown = dropdowns[i];
-    if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-    }
-    }
-}
-}
+clossModal.forEach((btn) =>btn.addEventListener("click", closeModal));
