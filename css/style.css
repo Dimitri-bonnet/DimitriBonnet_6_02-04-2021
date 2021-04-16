@@ -251,10 +251,10 @@
   text-decoration: none;
 }
 .photographer__header img {
-  width: auto;
+  width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 1px solid black;
+  object-fit: cover;
 }
 .photographer__header h2 {
   font-size: 25px;
