@@ -207,7 +207,7 @@
   justify-content: space-between;
   align-items: center;
   color: #901c1c;
-  height: 5vh;
+  height: 6vh;
 }
 .topBar__brand img {
   width: 180px;
@@ -504,6 +504,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  /* background: chartreuse; */
 }
 
 /* COLORS */

@@ -63,7 +63,6 @@ class Photographer {
       imgPhotographer.src = /* this.portrait */`./assets/Photographers ID Photos/${this.portrait}`
       const namePhotographer = document.createElement("h2");
       namePhotographer.append(this.name)
-
       linkPhotographer.append(imgPhotographer,namePhotographer);
       /* MAIN */
       const mainPhotographer = document.createElement("div");
@@ -94,12 +93,12 @@ class Photographer {
       /* FOOTER */
       const footerPhotographer = document.createElement("div");
       footerPhotographer.classList.add("photographer__footer");
-      for (let u = 0; u < 4; u++) {
-        const labelPhotographer = document.createElement("a");
-        labelPhotographer.classList.add("btnLabel");
-        labelPhotographer.append(this.tags)
-        footerPhotographer.append(labelPhotographer);
-      }
+        this.tags.forEach(tag => {
+          const labelPhotographer = document.createElement("a");
+          labelPhotographer.append('#'+ tag)
+          labelPhotographer.classList.add("btnLabel");
+          footerPhotographer.append(labelPhotographer);
+        })
       /* Append container */
       containerPhotographer.append(
         headerPhotographer,
