@@ -63,7 +63,9 @@ class Photographer {
     headerPhotographer.setAttribute("aria-label", `${this.name}`);
     const linkPhotographer = document.createElement("a");
     linkPhotographer.addEventListener("click", homePage.selectedPhtotographer);
-    linkPhotographer.href = `./photographer.html/?${this.id}`
+    const paramsString = this.id;
+    const searchParams = new URLSearchParams(paramsString)
+    linkPhotographer.href = `./photographer.html?${searchParams}`
     headerPhotographer.append(linkPhotographer);
     const imgPhotographer = document.createElement("img");
     imgPhotographer.src = `./assets/Photographers ID Photos/${this.portrait}`;
