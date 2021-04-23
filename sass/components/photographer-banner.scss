@@ -37,10 +37,10 @@
         justify-content: center;
         border-radius: 50%;
         img{
-            width: auto;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 1px solid black;
+            object-fit: cover;
         }
     }
 }
@@ -54,6 +54,13 @@
                     display:none;
                 }
             }
+        }
+        &__img{
+            img{
+                height: 80px;
+                width: 80px;
+            }
+           
         }
     }
     .photographerBanner__info-name{

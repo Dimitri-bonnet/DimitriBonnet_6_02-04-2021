@@ -343,10 +343,10 @@
   border-radius: 50%;
 }
 .photographerBanner__img img {
-  width: auto;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 1px solid black;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 580px) {
@@ -358,6 +358,10 @@
   }
   .photographerBanner__info-name button {
     display: none;
+  }
+  .photographerBanner__img img {
+    height: 80px;
+    width: 80px;
   }
 
   .photographerBanner__info-name button {
