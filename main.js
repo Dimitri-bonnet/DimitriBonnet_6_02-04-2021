@@ -24,6 +24,7 @@ class Homepage {
         )
       );
     });
+    console.log(dataPhotographers);
   }
   async displayPhotographers() {
     await this.getPhotogrpahers();
