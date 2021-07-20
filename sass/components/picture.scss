@@ -1,11 +1,12 @@
 @import "../utils/variables";
 
 .picture {
-  
   &__img {
     cursor: pointer;
     img {
       width: 28vw;
+      height: 400px;
+      object-fit: cover;
       border-radius: 4px;
     }
   }
