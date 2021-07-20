@@ -81,6 +81,11 @@
             width: 30vw;
           }
          }
+         &__name{
+           color: $primary;
+           font-size: 12px;
+           margin: 2px 0 2px 0;
+         }
         }
       }
     }
