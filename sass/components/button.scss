@@ -49,8 +49,10 @@
 
 .dropDown {
     position: relative;
-    z-index: 1;
+
   &__btn {
+    position: absolute;
+    top: -18px;
     background: $primary;
     color: white;
     border: none;
@@ -58,10 +60,21 @@
     font-weight: 600;
     cursor: pointer;
     font-size: 12px;
-   
+    .fa-chevron-up{
+      display: none;
+    }
+    &:hover{
+      .fa-chevron-up{
+        display: block;
+      }
+      .fa-chevron-down{
+        display: none;
+      }
+    }
     &-main {
       display: flex;
       padding: 14px 12px;
+     
     }
     &-content {
       display: none;
