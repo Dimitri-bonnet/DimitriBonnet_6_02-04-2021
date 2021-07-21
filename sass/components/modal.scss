@@ -79,6 +79,15 @@
           img{
             min-width: 200px;
             width: 30vw;
+            height: 300px;
+            object-fit: cover;
+          }
+          .carouselPictures__item{
+            display: none;
+          }
+          .active{
+            display:  block;
+            animation: fade 0.8s;
           }
          }
          &__name{
@@ -89,5 +98,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -133,9 +133,10 @@
 
 .dropDown {
   position: relative;
-  z-index: 1;
 }
 .dropDown__btn {
+  position: absolute;
+  top: -18px;
   background: #901c1c;
   color: white;
   border: none;
@@ -143,6 +144,15 @@
   font-weight: 600;
   cursor: pointer;
   font-size: 12px;
+}
+.dropDown__btn .fa-chevron-up {
+  display: none;
+}
+.dropDown__btn:hover .fa-chevron-up {
+  display: block;
+}
+.dropDown__btn:hover .fa-chevron-down {
+  display: none;
 }
 .dropDown__btn-main {
   display: flex;
@@ -309,6 +319,7 @@
   justify-content: space-between;
   background: #fafafa;
   padding: 30px;
+  margin-bottom: 5px;
 }
 .photographerBanner__info {
   /* background-color: blue; */
@@ -385,6 +396,8 @@
 }
 .picture__img img {
   width: 28vw;
+  height: 400px;
+  object-fit: cover;
   border-radius: 4px;
 }
 .picture__info {
@@ -494,8 +507,30 @@
 .bgGround .modal__content-picture .carouselPictures__pictures img {
   min-width: 200px;
   width: 30vw;
+  height: 300px;
+  object-fit: cover;
+}
+.bgGround .modal__content-picture .carouselPictures__pictures .carouselPictures__item {
+  display: none;
+}
+.bgGround .modal__content-picture .carouselPictures__pictures .active {
+  display: block;
+  animation: fade 0.8s;
+}
+.bgGround .modal__content-picture .carouselPictures__name {
+  color: #901c1c;
+  font-size: 12px;
+  margin: 2px 0 2px 0;
 }
 
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /* Pages */
 /* COLORS */
 /* POLICE */

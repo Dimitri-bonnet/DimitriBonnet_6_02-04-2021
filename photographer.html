@@ -36,7 +36,7 @@
               <button
                 class="btn modalOpenForm"
                 role="Contact me"
-                aria-label="Contact me, open modal"
+                aria-label="Contact me"
               >
                 Contactez-moi
               </button>
@@ -46,26 +46,27 @@
             <div class="photographerBanner__info-labels"></div>
           </div>
           <div class="photographerBanner__img">
-            <img alt="photographerName"/>
+            <img/>
           </div>
         </div>
         <div class="containerPhotographerSelected__sort">
           <div class="mr-2">
             <p>Trier par</p>
           </div>
+          <button class="modalOpenPicture">Carousel</button>
           <button class="pop">pop</button>
           <button class="date">date</button>
           <button class="name">name</button>
-          <div class="dropDown">
-            <button class="dropDown__btn">
+          <div class="dropDown"           >
+            <button class="dropDown__btn" aria-haspopup="listbox"  aria-expanded="true" aria-label="Order by" tabindex="0">
               <div class="dropDown__btn-main popularite">
                 <p class="mr-2">Popularité</p>
-                <i class="fas fa-chevron-down"></i
-                ><i class="fas fa-chevron-up"></i>
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-up"></i>
               </div>
               <div class="dropDown__btn-content">
-                <div class="item">Date</div>
-                <div class="item">Titre</div>
+                <div class="item" role="option">Date</div>
+                <div class="item" role="option">Titre</div>
               </div>
             </button>
           </div>
@@ -105,31 +106,32 @@
           <div class="modal__content-form">
             <h2>Contactez-moi</h2>
             <h2 class="modal__name"></h2>
-            <form class="formContact" action="">
+            <form class="formContact" id="">
               <div class="formContact__item mt-2">
-                <label for="firstName">Prénom</label>
-                <input type="text" id="firstName" role="First name" />
+                <label for="firstName" id="First name">Prénom</label>
+                <input type="text" id="firstName" role="First name" aria-labelledby="First name" />
               </div>
               <div class="formContact__item mt-2">
-                <label for="lastname">Nom</label>
-                <input type="text" id="lastname" role="Last name" />
+                <label for="lastName" id="Last name">Nom</label>
+                <input type="text" id="lastName" role="Last name" aria-labelledby="Last name" />
               </div>
               <div class="formContact__item mt-2">
-                <label for="email">Email</label>
-                <input type="text" id="email" role="Email" />
+                <label for="email" id="Email">Email</label>
+                <input type="text" id="email" role="Email"  aria-labelledby="Email"/>
               </div>
-              <div class="formContact__item mt-2">
-                <label for="yourMessage">Votre message</label>
+              <div class="formContact__item mt-2" >
+                <label for="yourMessage" id="Your message">Votre message</label>
                 <textarea
                   name=""
                   id="yourMessage"
                   cols="30"
                   rows="10"
                   role="Your message"
+                  aria-labelledby="Your message"
                 ></textarea>
               </div>
               <div class="formContact__btn">
-                <button class="btn my-2" role="Send">Envoyer</button>
+                <button class="btn my-2" role="Send" aria-label="Send">Envoyer</button>
               </div>
             </form>
           </div>
@@ -142,11 +144,27 @@
                 <i class="fas fa-chevron-left"></i>
               </div>
               <div class="carouselPictures__pictures" role="imageName">
-                <img
+                <div class="carouselPictures__item active">
+                  <img
                   src="https://cdn.pixabay.com/photo/2020/11/24/10/00/city-5772040__340.jpg"
                   alt=""
                 />
-                <p>NamePicture</p>
+                <p class="carouselPictures__name">NamePicture</p>
+                </div>
+                <div class="carouselPictures__item ">
+                  <img
+                  src="https://cdn.pixabay.com/photo/2021/07/07/13/51/palm-6394391__340.jpg"
+                  alt=""
+                />
+                <p class="carouselPictures__name">NamePicture</p>
+                </div>
+                <div class="carouselPictures__item">
+                  <img
+                  src="https://cdn.pixabay.com/photo/2021/07/17/23/01/dog-6474269__340.jpg"
+                  alt=""
+                />
+                <p class="carouselPictures__name">NamePicture</p>
+                </div>
               </div>
               <div class="carouselPictures__chevron" role="Next image">
                 <i class="fas fa-chevron-right"></i>
@@ -159,7 +177,6 @@
     <div class="stickyBanner">
       <div class="stickyBanner__like">
         <p></p>
-        <!-- <p class="mr-2">298 045</p> -->
         <i class="fas fa-heart"></i>
       </div>
       <div class="stickyBanner__price">

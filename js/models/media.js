@@ -8,12 +8,12 @@ class Media {
       this.tags = tags;
       this.title = title;
       this.video = video;
-     
     }
     createPictureItem = () => {
+      /* console.log(this.img); */
       /* APPEND TO CONTAINER */
       const containerPicture = document.createElement("div");
-      containerPicture.classList.add("picture");
+      containerPicture.classList.add("picture");/* "modalOpenPicture" */
       /*  */
       const contentPictur = document.createElement("div");
       contentPictur.classList.add("picture__img");
@@ -21,7 +21,8 @@ class Media {
       const imgPicture = document.createElement("img");
       imgPicture.classList.add("modalOpenPicture");
       contentPictur.append(imgPicture);
-      imgPicture.src = "../assets/Ellie Rose/Architecture_Connected_Curves.jpg"; //TODO Comment récuprer le nom de mon photographer
+      imgPicture.src = `../assets/Ellie Rose/${this.img}`; //TODO Comment récuprer le nom de mon photographer
+      imgPicture.alt = `${this.title}, closeup view`
       /*  */
       const containerPictureInfo = document.createElement("div");
       containerPictureInfo.classList.add("picture__info");
@@ -40,6 +41,7 @@ class Media {
       const wrapperInfoPictureLikes = document.createElement("div");
       const infoPictureLikes = document.createElement("p");
       infoPictureLikes.append(this.likes);
+      infoPictureLikes.ariaLabel = "likes"
       const iconLikes = document.createElement("i");
       iconLikes.classList.add("fas", "fa-heart", "ml-2");
       infoPictureLikes.append(iconLikes);
@@ -49,7 +51,18 @@ class Media {
       containerPicture.append(contentPictur, containerPictureInfo);
       return containerPicture;
     };
+    creatPictureItemSlider =  () => {
+      const contentSliderPicture = document.querySelector(".carouselPictures__pictures");   
+      const templateItemPictureSlider = `
+      <div class="carouselPictures__item">
+        <img src="../assets/Ellie Rose/${this.img}"alt="">
+        <p class="carouselPictures__name">${this.title}</p>
+      </div>
+      `
+      contentSliderPicture.insertAdjacentHTML("beforeend", templateItemPictureSlider);
+      return contentSliderPicture
+    }
 
-    
-  }
   
+  }
+
