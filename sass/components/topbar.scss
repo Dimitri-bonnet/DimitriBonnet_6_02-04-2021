@@ -7,31 +7,38 @@
   justify-content: space-between;
   align-items: center;
   color: $primary;
-  height: 6vh;
+  /* height: 6vh; */
+  /* background-color: aqua; */
   &__brand {
     img{
-      width: 180px;
+      min-width: 120px;
+      width: 10vw;
     }
    
   }
   &__items {
     ul{
         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         li{
             list-style: none;
         }
     }
   }
   &__title {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: $breakPointMobile) {
   .topBar {
-      /* background-color: rebeccapurple; */
-      display: flex;
-      justify-content: center;
+    padding: 0 10px;
       &__brand{
           margin-right: 30px;
+          img{
+           /*  width: 120px; */
+          }
       }
       &__items{
           margin: 10px;
@@ -39,7 +46,7 @@
       }
       &__title{
           
-          font-size: 12px;
+          font-size: 10px;
       }
       
   }

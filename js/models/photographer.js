@@ -9,6 +9,7 @@ class Photographer {
       this.tagline = tagline;
       this.tags = tags;
     }
+
     createPhotographerItem = () => {
       const url = new URL(`http://127.0.0.1:5501/photographer.html?=${this.id}`)
       /* DOM CONTAINER PHOTOGRAPHER ITEMS */
@@ -74,4 +75,44 @@ class Photographer {
       );
       return containerPhotographer;
     };
+
+    createphotographerBanner = () => {
+      const bannerName = document.querySelector(
+        ".photographerBanner__info-name h1"
+      );
+      bannerName.append(this.name);
+      const bannerLocation = document.querySelector(
+        ".photographerBanner__info-country"
+      );
+      bannerLocation.append(
+        `${this.country}, ${this.city}`
+      );
+      const bannerTagline = document.querySelector(
+        ".photographerBanner__info-tagline"
+      );
+      bannerTagline.append(this.tagline);
+      const bannerImg = document.querySelector(".photographerBanner__img img");
+      bannerImg.src = `../assets/Photographers ID Photos/${this.portrait}`;
+      bannerImg.alt = `${this.name}`;
+      const bannerLabels = document.querySelector(
+        ".photographerBanner__info-labels"
+      );
+      this.tags.forEach((tag) => {
+        const labelPhotographer = document.createElement("a");
+        const spanLabel = document.createElement("span");
+        labelPhotographer.append(spanLabel);
+        spanLabel.append("#" + tag);
+        labelPhotographer.classList.add("btnLabel");
+        bannerLabels.append(labelPhotographer);
+      });
+      /* Sticky Banner */
+      const stickyBannerPrice = document.querySelector(".stickyBanner__price p");
+      stickyBannerPrice.append(this.price + "€" + "/jour");
+      /* Modal contact */
+      const modalContactName = document.querySelector(".modal__name");
+      modalContactName.append(this.name);
+      modalContactName.ariaLabel = `contact me ${this.name}`;
+      const modalContactContent = document.querySelector(".modal__content-form");
+      modalContactContent.ariaLabel = `contact me ${this.name}`;
+    }
   }

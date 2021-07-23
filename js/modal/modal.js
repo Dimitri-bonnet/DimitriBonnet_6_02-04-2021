@@ -33,7 +33,7 @@ clossModal.forEach((btn) => btn.addEventListener("click", closeModal));
 const leftSlider = document.querySelector(".fa-chevron-left");
 const rightSlider = document.querySelector(".fa-chevron-right");
 const itemsPicture = document.querySelectorAll(".carouselPictures__item");//TODO Problème avec la DOM car utilise template literals array VIDE
-console.log(itemsPicture);
+/* console.log(itemsPicture); */
 const nbSlide = itemsPicture.length;
 let count = 0;
 previousPicture = () => {
