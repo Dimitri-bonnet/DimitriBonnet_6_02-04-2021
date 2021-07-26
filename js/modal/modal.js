@@ -1,3 +1,18 @@
+class Modal {
+  constructor(){
+    this.medias = []
+  }
+ async lauchModal(){
+    modal.style.display = "block";
+    if (e.target.classList.contains("modalOpenForm")) {
+      contentModalPicture.style.display = "none";
+      contentModalForm.style.display = "block";
+    } else if (e.target.classList.contains("modalOpenPicture")) {
+      contentModalForm.style.display = "none";
+      contentModalPicture.style.display = " block";
+    }
+  };
+}
 /* Dom elements */
 /* MODAL */
 const modal = document.querySelector(".bgGround");
@@ -15,18 +30,17 @@ const lauchModal = (e) => {
   } else if (e.target.classList.contains("modalOpenPicture")) {
     contentModalForm.style.display = "none";
     contentModalPicture.style.display = " block";
-    pagePhotographer.displayMediasSlider();
   }
 };
+
 /* Close modal */
 const closeModal = () => {
   modal.style.display = "none";
 };
+
 openModalPicutre.forEach((btn) => btn.addEventListener("click", lauchModal));
 openModalForm.forEach((btn) => btn.addEventListener("click", lauchModal));
 clossModal.forEach((btn) => btn.addEventListener("click", closeModal));
-
-
 /* Dom elements */
 /* SLIDER */
 /* const sliderPicture = new Media() */

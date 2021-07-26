@@ -525,7 +525,7 @@
   object-fit: cover;
 }
 .bgGround .modal__content-picture .carouselPictures__pictures .carouselPictures__item {
-  display: none;
+  /* display: none; */
 }
 .bgGround .modal__content-picture .carouselPictures__pictures .active {
   display: block;

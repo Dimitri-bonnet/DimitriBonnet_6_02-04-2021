@@ -1,56 +1,35 @@
-const _urlApi ="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json";
+const _urlApi =
+  "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json";
 const params = new URLSearchParams(window.location.search);
-const photogrpaherId = params.get("");
+const photographerId = params.get("");
 class PagePhotographer {
-  constructor(id) {
-    this.photographer = { id: id };
+  constructor() {
+    this.photographer = {};
     this.medias = [];
+    
   }
-  /* PHOTOGRAPHER */
-  async getPhotographer() {
-    const response = await fetch(_urlApi);
-    const data = await response.json();
-    const dataPhotographers = data["photographers"];
-    const photographerFiltre = dataPhotographers.filter(
-      (photographer) => photographer.id == photogrpaherId
+  async filterPhotographer() {
+    const photographers = new Photographers();
+    await photographers.fetchPhotographers();
+    this.photographer = photographers["photographers"].filter(
+      (photographer) => photographer.id == photographerId
     );
-    photographerFiltre.forEach((photographer) => {
-      this.photographer = new Photographer(
-        photographer.id,
-        photographer.name,
-        photographer.portrait,
-        photographer.country,
-        photographer.city,
-        photographer.price,
-        photographer.tagline,
-        photographer.tags
-      );
-    });
+  }
+  async filterMedias() {
+    const medias = new Medias();
+    await medias.fetchMedias();
+    this.medias = medias["medias"].filter(
+      (media) => media.photographId == photographerId
+    );
   }
   async displayPhotographerBanner() {
-    this.photographer.createphotographerBanner();
+    this.photographer.forEach((photographer) => {
+      photographer.createphotographerBanner();
+    });
   }
-  /* MEDIA */
-  async getMedias() {
-    const response = await fetch(_urlApi);
-    const data = await response.json();
-    const dataMedia = data["media"];
-    const dataMediaFilter = dataMedia.filter(
-      (media) => media.photographerId === this.photographer.id
-    );
-    dataMediaFilter.forEach((media) => {
-      this.medias.push(
-        new Media(
-          media.date,
-          media.id,
-          media.image,
-          media.likes,
-          media.price,
-          media.tags,
-          media.title,
-          media.video
-        )
-      );
+  async displayMedias() {
+    this.medias.forEach((media) => {
+      media.createPictureItem();
     });
   }
   async totalLikes() {
@@ -61,67 +40,32 @@ class PagePhotographer {
     const stickyBannerLikes = document.querySelector(".stickyBanner__like p");
     stickyBannerLikes.append(totalLikes);
   }
-  async displayMedias() {
-    this.totalLikes()
-    const containerImgs = document.querySelector(
-      ".containerPhotographerSelected__imgs"
-    );
+  displayMediasSlider() {
     this.medias.forEach((media) => {
-      const templateMedia = `
-        <div class="picture">
-          <div class="picture__img">
-            <img class="modalOpenPicture" alt="${media.title}, closeup view" src="../assets/${this.photographer.name}/${media.img}">
-          </div>
-          <div class="picture__info">
-           <span class="picture__info-name">${media.title}</span>
-           <div class="picture__info-info">
-            <div class="mr-2">
-              <p>${media.price}</p>
-            </div>
-            <div>
-                <p aria-label="">
-                ${media.likes}
-                <i class="fas fa-heart ml-2"></i>
-                </p>
-            </div>
-           </div>
-          </div>
-        </div>
-      `;
-      containerImgs.insertAdjacentHTML("beforeend", templateMedia);
+      media.createPictureItemSlider();
     });
   }
-/*   displayMediasSlider() {
-    const contentSliderPicture = document.querySelector(
-      ".carouselPictures__pictures"
-    );
-    this.medias.forEach((media) => {
-      contentSliderPicture.insertAdjacentHTML(
-        "beforeend",
-        media.createPictureItemSlider()
-      );
-    });
-  } */
+  getName(){
+    console.log(this.photographer);
+    this.photographer.forEach((photographer) => {
+        console.log(photographer.name);
+        return photographer.name
+    })
+  }
 }
 (async function () {
   const pagePhotographer = new PagePhotographer();
-  await pagePhotographer.getPhotographer();
-  await pagePhotographer.displayPhotographerBanner();
-  await pagePhotographer.getMedias();
+  await pagePhotographer.filterPhotographer();
+  await pagePhotographer.filterMedias();
+  await pagePhotographer.totalLikes();
   await pagePhotographer.displayMedias();
+  await pagePhotographer.displayPhotographerBanner();
+  await pagePhotographer.displayMediasSlider();
+  await pagePhotographer.getName();
 })();
 
-
-
-
-
-
-
-
-
-
-  /* SORT */
-  /* Bylikes */
+/* SORT */
+/* Bylikes */
 /*   sortBylikes() {
     this.medias.sort((a, b) => {
       return b.likes - a.likes;
@@ -129,17 +73,17 @@ class PagePhotographer {
     console.log(this.medias);
     console.log("pop"); //TODO RELOAD ?
   } */
-  /* Bydate */
+/* Bydate */
 /*   sortByDate() {
     console.log("date");
   } */
-  /* ByName */
+/* ByName */
 /*   sortByName() {
     this.medias.sort((a, b) => a.title.localeCompare(b.title));
     console.log(this.medias);
     console.log("name");
   } */
-  /* const btnSortLikes = document.querySelector(".pop");
+/* const btnSortLikes = document.querySelector(".pop");
 btnSortLikes.addEventListener("click", function () {
   pagePhotographer.sortBylikes();
 });
