@@ -14,8 +14,8 @@ class Media {
   async getPhotographeName() {
     const p = new PagePhotographer();
     await p.filterPhotographer();
-    p.photographer.forEach((photographe) => {
-      this.photographerName = photographe.name;
+    p.photographer.forEach((photographer) => {
+      this.photographerName = photographer.name;
     });
   }
   async createPictureItem() {
@@ -63,8 +63,3 @@ class Media {
     );
   }
 }
-
-/* (async function () {
-  const m = new Media();
-  await m.getPhotographeName();
-})(); */

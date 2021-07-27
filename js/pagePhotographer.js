@@ -20,7 +20,6 @@ class PagePhotographer {
     this.medias = medias["medias"].filter(
       (media) => media.photographId == photographerId
     );
-
   }
   async displayPhotographerBanner() {
     this.photographer.forEach((photographer) => {

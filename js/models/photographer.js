@@ -74,7 +74,7 @@ class Photographer {
     );
     return containerPhotographer;
   };
- 
+
   createphotographerBanner = () => {
     const bannerName = document.querySelector(
       ".photographerBanner__info-name h1"
@@ -113,6 +113,6 @@ class Photographer {
     modalContactContent.ariaLabel = `contact me ${this.name}`;
   };
   async getName() {
-    return this.name
+    return this.name;
   }
 }

@@ -2,7 +2,7 @@ class Medias {
   constructor() {
     this.medias = [];
   }
- async fetchMedias() {
+  async fetchMedias() {
     const _urlApi =
       "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeDataFR.json";
     const response = await fetch(_urlApi);
@@ -24,5 +24,4 @@ class Medias {
       );
     });
   }
-
 }

@@ -17,4 +17,5 @@ console.log(photographe);
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log(event);
   console.log("DOM entièrement chargé et analysé");
+  console.log(photographe);
 });
