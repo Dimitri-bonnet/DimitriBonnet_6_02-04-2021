@@ -1,4 +1,3 @@
-
 class Medias {
   constructor() {
     this.medias = [];

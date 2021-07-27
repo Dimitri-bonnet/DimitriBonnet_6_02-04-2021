@@ -6,7 +6,6 @@ class PagePhotographer {
   constructor() {
     this.photographer = {};
     this.medias = [];
-    
   }
   async filterPhotographer() {
     const photographers = new Photographers();
@@ -21,6 +20,7 @@ class PagePhotographer {
     this.medias = medias["medias"].filter(
       (media) => media.photographId == photographerId
     );
+
   }
   async displayPhotographerBanner() {
     this.photographer.forEach((photographer) => {
@@ -40,17 +40,10 @@ class PagePhotographer {
     const stickyBannerLikes = document.querySelector(".stickyBanner__like p");
     stickyBannerLikes.append(totalLikes);
   }
-  displayMediasSlider() {
+  async displayMediasSlider() {
     this.medias.forEach((media) => {
       media.createPictureItemSlider();
     });
-  }
-  getName(){
-    console.log(this.photographer);
-    this.photographer.forEach((photographer) => {
-        console.log(photographer.name);
-        return photographer.name
-    })
   }
 }
 (async function () {
@@ -61,7 +54,6 @@ class PagePhotographer {
   await pagePhotographer.displayMedias();
   await pagePhotographer.displayPhotographerBanner();
   await pagePhotographer.displayMediasSlider();
-  await pagePhotographer.getName();
 })();
 
 /* SORT */
