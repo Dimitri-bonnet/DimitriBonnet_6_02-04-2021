@@ -9,24 +9,17 @@ class Media {
     this.tags = tags;
     this.title = title;
     this.video = video;
-    this.photographerName = [];
+    this.photographerName = {};
   }
   async getPhotographeName() {
     const p = new PagePhotographer();
     await p.filterPhotographer();
-    p["photographer"].forEach((photographer) => {
-     const i = photographer.getName();
-     console.log(i);
-     this.photographerName.push(i)
-    i.then((value) => {
-        console.log(value);
-        this.photographerName = value
-      })
+    p.photographer.forEach((photographe) => {
+      this.photographerName = photographe.name;
     });
-     console.log(this.photographerName);
   }
-  async createPictureItem() { 
-console.log(this.photographerName);
+  async createPictureItem() {
+    await this.getPhotographeName();
     const containerImgs = document.querySelector(
       ".containerPhotographerSelected__imgs"
     );
@@ -53,7 +46,8 @@ console.log(this.photographerName);
       `;
     containerImgs.insertAdjacentHTML("beforeend", templateMedia);
   }
-  createPictureItemSlider = () => {
+  async createPictureItemSlider() {
+    await this.getPhotographeName();
     const containerSliderPicture = document.querySelector(
       ".carouselPictures__pictures"
     );
@@ -67,10 +61,10 @@ console.log(this.photographerName);
       "beforeend",
       templateItemPictureSlider
     );
-  };
+  }
 }
 
-(async function () {
+/* (async function () {
   const m = new Media();
   await m.getPhotographeName();
-})();
+})(); */
