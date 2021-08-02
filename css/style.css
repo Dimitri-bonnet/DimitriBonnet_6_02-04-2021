@@ -107,7 +107,8 @@
 }
 
 .btnStickyTop {
-  display: block;
+  display: none;
+  /*  display: block; */
   position: sticky;
   top: 0;
 }
@@ -317,6 +318,10 @@
   text-decoration: none;
 }
 
+.hiddenPhotographer {
+  display: none;
+}
+
 @media screen and (max-width: 580px) {
   .photographer {
     margin: 15px;
@@ -405,11 +410,13 @@
 /* BTN */
 /* BTN LABEL */
 /* BREAKPOINT */
-.picture__img {
-  cursor: pointer;
-}
-.picture__img img {
+.picture {
   width: 28vw;
+  min-width: 280px;
+}
+.picture img {
+  cursor: pointer;
+  width: 100%;
   height: 400px;
   object-fit: cover;
   border-radius: 4px;
@@ -525,7 +532,7 @@
   object-fit: cover;
 }
 .bgGround .modal__content-picture .carouselPictures__pictures .carouselPictures__item {
-  /* display: none; */
+  display: none;
 }
 .bgGround .modal__content-picture .carouselPictures__pictures .active {
   display: block;

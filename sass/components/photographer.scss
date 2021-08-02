@@ -53,6 +53,9 @@
     }
   }
 }
+.hiddenPhotographer{
+  display: none;
+}
 @media screen and (max-width: $breakPointMobile) {
     .photographer{
       margin: 15px;

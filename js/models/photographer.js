@@ -9,7 +9,7 @@ class Photographer {
     this.tagline = tagline;
     this.tags = tags;
   }
-  createPhotographerItem = () => {
+  createPhotographerItem() {
     const url = new URL(`http://127.0.0.1:5500/photographer.html?=${this.id}`);
     /* DOM CONTAINER PHOTOGRAPHER ITEMS */
     const containerPhotographer = document.createElement("div");
@@ -60,11 +60,17 @@ class Photographer {
     this.tags.forEach((tag) => {
       const labelPhotographer = document.createElement("a");
       const spanLabel = document.createElement("span");
-      labelPhotographer.append(spanLabel);
+      spanLabel.addEventListener("click", () => {
+        const hp = new Homepage();
+        hp.filterBytag(tag);
+        console.log(tag);
+      });
+
+      spanLabel.append(labelPhotographer);
       spanLabel.setAttribute("aria-label", `${tag}`);
-      spanLabel.append("#" + tag);
-      labelPhotographer.classList.add("btnLabel");
-      footerPhotographer.append(labelPhotographer);
+      labelPhotographer.append("#" + tag);
+      spanLabel.classList.add("btnLabel");
+      footerPhotographer.append(spanLabel);
     });
     /* Append container */
     containerPhotographer.append(
@@ -73,7 +79,7 @@ class Photographer {
       footerPhotographer
     );
     return containerPhotographer;
-  };
+  }
 
   createphotographerBanner = () => {
     const bannerName = document.querySelector(
@@ -97,10 +103,16 @@ class Photographer {
     this.tags.forEach((tag) => {
       const labelPhotographer = document.createElement("a");
       const spanLabel = document.createElement("span");
-      labelPhotographer.append(spanLabel);
-      spanLabel.append("#" + tag);
-      labelPhotographer.classList.add("btnLabel");
-      bannerLabels.append(labelPhotographer);
+      spanLabel.setAttribute("aria-label", `${tag}`);
+      spanLabel.addEventListener("click", () => {
+        const hp = new Homepage();
+        hp.filterBytag(tag);
+        console.log(tag);
+      });
+      spanLabel.append(labelPhotographer);
+      labelPhotographer.append("#" + tag);
+      spanLabel.classList.add("btnLabel");
+      bannerLabels.append(spanLabel);
     });
     /* Sticky Banner */
     const stickyBannerPrice = document.querySelector(".stickyBanner__price p");
@@ -112,7 +124,4 @@ class Photographer {
     const modalContactContent = document.querySelector(".modal__content-form");
     modalContactContent.ariaLabel = `contact me ${this.name}`;
   };
-  async getName() {
-    return this.name;
-  }
 }
