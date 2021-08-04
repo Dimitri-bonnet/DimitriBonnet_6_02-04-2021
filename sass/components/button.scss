@@ -19,12 +19,12 @@
   }
 }
 .btnStickyTop {
-  //TODO - JS: display when scroll 
+  //TODO - JS: display when scroll
   display: none;
- /*  display: block; */
+  /*  display: block; */
   position: sticky;
-  top :0;
-  button{
+  top: 0;
+  button {
     background: $secondary;
     padding: 5px;
   }
@@ -38,19 +38,29 @@
   font-size: 10px;
   margin: 3px;
   cursor: pointer;
+  a {
+    text-decoration: none;
+    color: $primary;
+    background: none;
+  }
   &:hover {
+    a {
+      color: white;
+    }
     background: $primary;
     color: white;
   }
   &:focus {
+    a {
+      color: white;
+    }
     background: $primary;
     color: white;
   }
 }
 
 .dropDown {
-    position: relative;
-
+  position: relative;
   &__btn {
     position: absolute;
     top: -18px;
@@ -61,26 +71,24 @@
     font-weight: 600;
     cursor: pointer;
     font-size: 12px;
-    .fa-chevron-up{
+    .fa-chevron-up {
       display: none;
     }
-    &:hover{
-      .fa-chevron-up{
+    &:hover {
+      .fa-chevron-up {
         display: block;
       }
-      .fa-chevron-down{
+      .fa-chevron-down {
         display: none;
       }
     }
     &-main {
       display: flex;
       padding: 14px 12px;
-     
     }
     &-content {
       display: none;
       padding: 5px;
-
       .item {
         padding: 14px 12px;
         text-align: left;
@@ -96,38 +104,4 @@
   }
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-  .dropbtn {
-    &:hover,
-    &:focus {
-      background-color: $secondary;
-    }
-  }
-}
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: white;
-  background: $primary;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {
-  background-color: #ddd;
-}
-
-.show {
-  display: block;
-}

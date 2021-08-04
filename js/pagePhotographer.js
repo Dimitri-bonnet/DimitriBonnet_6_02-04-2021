@@ -4,6 +4,7 @@ class PagePhotographer {
   constructor() {
     this.photographer = {};
     this.medias = [];
+    this.sortedMedias = [];
   }
   async filterMedias() {
     const service = new Service();
@@ -65,14 +66,6 @@ class PagePhotographer {
       containerPicture.append(content);
     });
   }
-  async totalLikes() {
-    let totalLikes = 0;
-    this.medias.forEach((media) => {
-      totalLikes += media.likes;
-    });
-    const stickyBannerLikes = document.querySelector(".stickyBanner__like p");
-    stickyBannerLikes.append(totalLikes);
-  }
   async displayMediasSlider() {
     const containerSlider = document.querySelector(
       ".carouselPictures__pictures"
@@ -91,26 +84,46 @@ class PagePhotographer {
       containerSlider.append(content);
     });
   }
+  async totalLikes() {
+    let totalLikes = 0;
+    this.medias.forEach((media) => {
+      totalLikes += media.likes;
+    });
+    const stickyBannerLikes = document.querySelector(".stickyBanner__like p");
+    stickyBannerLikes.append(totalLikes);
+  }
+
+  /* SORT */
   sortByPop() {
     const btnSortLikes = document.querySelector(".pop");
     btnSortLikes.addEventListener("click", () => {
-      console.log("by pop");
+      this.removeMedia();
       this.medias.sort((a, b) => {
         return b.likes - a.likes;
       });
-      console.log(this.medias);
+      this.displayMedias();
     });
   }
-  sortByName() {
+  async sortByName() {
     const btnSortName = document.querySelector(".name");
-    btnSortName.addEventListener("click", function () {
-      console.log("by name");
+    btnSortName.addEventListener("click", () => {
+      this.removeMedia();
+      this.medias.sort((a, b) => a.title.localeCompare(b.title));
+      this.displayMedias();
     });
   }
   sortByDate() {
     const btnSortDate = document.querySelector(".date");
-    btnSortDate.addEventListener("click", function () {
-      console.log("by date");
+    btnSortDate.addEventListener("click", () => {
+      this.removeMedia();
+      this.medias.sort((a, b) => new Date(b.date) - new Date(a.date));
+      this.displayMedias();
+    });
+  }
+  removeMedia() {
+    const medias = document.querySelectorAll(".picture");
+    medias.forEach((m) => {
+      m.remove();
     });
   }
 }
@@ -123,39 +136,6 @@ class PagePhotographer {
   await pagePhotographer.totalLikes();
   await pagePhotographer.displayMediasSlider();
   pagePhotographer.sortByPop();
-  pagePhotographer.sortByName();
+  await pagePhotographer.sortByName();
   pagePhotographer.sortByDate();
 })();
-
-/* SORT */
-/* Bylikes */
-/*   sortBylikes() {
-    this.medias.sort((a, b) => {
-      return b.likes - a.likes;
-    });
-    console.log(this.medias);
-    console.log("pop"); //TODO RELOAD ?
-  } */
-/* Bydate */
-/*   sortByDate() {
-    console.log("date");
-  } */
-/* ByName */
-/*   sortByName() {
-    this.medias.sort((a, b) => a.title.localeCompare(b.title));
-    console.log(this.medias);
-    console.log("name");
-  } */
-/* const btnSortLikes = document.querySelector(".pop");
-btnSortLikes.addEventListener("click", function () {
-  pagePhotographer.sortBylikes();
-});
-const btnSortName = document.querySelector(".name");
-btnSortName.addEventListener("click", function () {
-  pagePhotographer.sortByName();
-});
-const btnSortDate = document.querySelector(".date");
-btnSortDate.addEventListener("click", function () {
-  pagePhotographer.sortByDate();
-});
- */

@@ -9,14 +9,14 @@ class Homepage {
     const dataPhotographers = await service.getPhotographers();
     this.photographers = dataPhotographers;
   }
-  async displayPhotographer() {
+  displayPhotographer() {
     const containerPhotographers = document.querySelector(".photographers");
     this.photographers.forEach((photographer) => {
       containerPhotographers.append(photographer.createPhotographerItem());
     });
   }
 
-  async displayUniqueTag() {
+  displayUniqueTag() {
     this.photographers.forEach((photographer) => {
       photographer.tags.forEach((tag) => {
         this.tags.push(tag);
@@ -43,18 +43,27 @@ class Homepage {
     const r = this.photographers.filter((photographer) =>
       photographer.tags.includes(tag)
     );
-    console.log(r);
     this.photographersFilterBytag = r;
     this.displayPhotographerFilterByTag();
   }
+  filterBytagPagePhotographer() {
+    const params = new URLSearchParams(window.location.search);
+    const tag = params.get("");
+    console.log(tag);
+    this.filterBytag(tag);
+  }
   displayPhotographerFilterByTag() {
-    const photographers = document.querySelectorAll(".photographer");
-    photographers.forEach((p) => {
-      p.classList.add("hiddenPhotographer");
-    });
+    this.removePhotographer();
     this.photographersFilterBytag.forEach((p) => {
       const containerPhotographers = document.querySelector(".photographers");
       containerPhotographers.append(p.createPhotographerItem());
+    });
+  }
+  removePhotographer() {
+    const p = document.querySelectorAll(".photographer");
+    console.log(p);
+    p.forEach((p) => {
+      p.remove();
     });
   }
   displayBtnContenu() {
@@ -72,7 +81,8 @@ class Homepage {
 (async function () {
   const homePage = new Homepage();
   await homePage.getPhotographers();
-  await homePage.displayPhotographer();
-  await homePage.displayUniqueTag();
-  await homePage.displayBtnContenu();
+  homePage.displayPhotographer();
+  homePage.displayUniqueTag();
+  homePage.displayBtnContenu();
+  /* homePage.filterBytagPagePhotographer(); */
 })();

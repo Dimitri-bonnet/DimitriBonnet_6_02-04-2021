@@ -100,13 +100,16 @@ class Photographer {
     const bannerLabels = document.querySelector(
       ".photographerBanner__info-labels"
     );
+  
     this.tags.forEach((tag) => {
+      const url  = new URL(`http://127.0.0.1:5500/?=${tag}`);/* */
       const labelPhotographer = document.createElement("a");
+      labelPhotographer.href = url
       const spanLabel = document.createElement("span");
       spanLabel.setAttribute("aria-label", `${tag}`);
       spanLabel.addEventListener("click", () => {
         const hp = new Homepage();
-        hp.filterBytag(tag);
+        hp.filterBytag(tag)
         console.log(tag);
       });
       spanLabel.append(labelPhotographer);
