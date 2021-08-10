@@ -21,29 +21,29 @@
     &__close {
       font-size: 30px;
       position: absolute;
-      right:20px;
+      right: 20px;
       top: 20px;
       cursor: pointer;
     }
-    .contact{
+    .contact {
       color: white;
     }
-    .pictures{
+    .medias {
       color: $primary;
     }
     &__content {
       &-form {
         padding: 20px;
         background: $secondary;
-        h2{
-            font-size: 30px;
+        h2 {
+          font-size: 30px;
         }
         .formContact {
           &__item {
             display: flex;
             flex-direction: column;
-            label{
-                font-size: 20px;
+            label {
+              font-size: 20px;
             }
             input {
               height: 35px;
@@ -55,46 +55,46 @@
               border: none;
             }
           }
-          &__btn{
-              button{
-                  padding: 14px 18px;
-              }
+          &__btn {
+            button {
+              padding: 14px 18px;
+            }
           }
         }
       }
-      &-picture{
+      &-media {
         padding: 20px;
         background: white;
-        .carouselPictures{
+        .carouselMedias {
           display: flex;
           align-items: center;
           justify-content: center;
-         &__chevron{
-           color: $primary;
-           font-size: 25px;
-           cursor: pointer;
-           margin: 20px;
-         }
-         &__pictures{
-          img{
-            min-width: 200px;
-            width: 30vw;
-            height: 300px;
-            object-fit: cover;
+          &__chevron {
+            color: $primary;
+            font-size: 25px;
+            cursor: pointer;
+            margin: 20px;
           }
-          .carouselPictures__item{
-            display: none;
+          &__medias {
+            img {
+              min-width: 200px;
+              width: 30vw;
+              height: 300px;
+              object-fit: cover;
+            }
+            .carouselMedias__item {
+              display: none;
+            }
+            .active {
+              display: block;
+              animation: fade 0.8s;
+            }
           }
-          .active{
-            display:  block;
-            animation: fade 0.8s;
+          &__name {
+            color: $primary;
+            font-size: 12px;
+            margin: 2px 0 2px 0;
           }
-         }
-         &__name{
-           color: $primary;
-           font-size: 12px;
-           margin: 2px 0 2px 0;
-         }
         }
       }
     }

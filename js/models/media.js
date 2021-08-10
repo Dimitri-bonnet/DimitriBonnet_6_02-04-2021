@@ -9,6 +9,44 @@ class Media {
     this.tags = tags;
     this.title = title;
     this.video = video;
-    this.photographerName = {};
+  }
+}
+class Video {
+  constructor(data) {
+    this.date = data.date;
+    this.id = data.id;
+    this.video = data.video;
+    this.likes = data.likes;
+    this.photographId = data.photographId;
+    this.price = data.price;
+    this.tags = data.tags;
+    this.title = data.title;
+  }
+  itemVideo(){
+      
+  }
+}
+class Image {
+  constructor(data) {
+    this.date = data.date;
+    this.id = data.id;
+    this.img = data.image;
+    this.likes = data.likes;
+    this.photographId = data.photographId;
+    this.price = data.price;
+    this.tags = data.tags;
+    this.title = data.title;
+  }
+  itemImage(){
+    
+  }
+}
+class Factory {
+  constructor(type, data) {
+    if (type === "image") {
+      return new Image(data);
+    } else {
+      return new Video(data);
+    }
   }
 }

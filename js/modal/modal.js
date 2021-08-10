@@ -3,13 +3,13 @@ class Modal {
   lauchModal(e, media) {
     modal.style.display = "block";
     if (e.target.classList.contains("modalOpenForm")) {
-      contentModalPicture.style.display = "none";
+      contentModalMedia.style.display = "none";
       contentModalForm.style.display = "block";
-    } else if (e.target.classList.contains("modalOpenPicture")) {
+    } else if (e.target.classList.contains("modalOpenMedia")) {
       contentModalForm.style.display = "none";
-      contentModalPicture.style.display = " block";
+      contentModalMedia.style.display = " block";
       const slider = new Slider();
-      slider.selectedMedia(media);
+      slider.initSlider(media, e);
     }
   }
   closeModal() {
@@ -21,7 +21,7 @@ class Modal {
 const modal = document.querySelector(".bgGround");
 const clossModal = document.querySelectorAll(".modal__close");
 const contentModalForm = document.querySelector(".modal__content-form");
-const contentModalPicture = document.querySelector(".modal__content-picture");
+const contentModalMedia = document.querySelector(".modal__content-media");
 const openModalForm = document.querySelectorAll(".modalOpenForm");
 /* Close modal */
 const modale = new Modal();

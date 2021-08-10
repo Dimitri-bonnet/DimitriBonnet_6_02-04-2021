@@ -25,8 +25,6 @@ class Service {
     });
     return photographers;
   }
-  getPhotographer(id) {}
-
   async getMedias() {
     const response = await fetch(_urlApi);
     const data = await response.json();
@@ -49,5 +47,4 @@ class Service {
     });
     return medias;
   }
-  getMediasByIdPhotographer(id) {}
 }

@@ -29,7 +29,7 @@
             <h1 class="mr-3">
             </h1>
             <!-- </header> -->
-            <button class="btn modalOpenForm" role="Contact me" aria-label="Contact me">
+            <button type="button" class="btn modalOpenForm" role="Contact me" aria-label="Contact me">
               Contactez-moi
             </button>
           </div>
@@ -63,17 +63,17 @@
         </div>
       </div>
       <div class="containerPhotographerSelected__imgs">
-          <!-- Here : template picture -->
+          <!-- Here : template Media -->
       </div>
     </main>
   </div>
   <div class="bgGround">
     <div class="modal">
       <div class="modal__content">
-        <span class="modal__close contact" role="Close Contact form">
+        <button class="modal__close contact btnCloseModal" role="Close Contact form" aria-label="">
           <i class="fas fa-times"></i>
-        </span>
-        <div class="modal__content-form" role="dialog">
+        </button>
+        <div class="modal__content-form" role="dialog" aria-label="Contacte me">
           <h2>Contactez-moi</h2>
           <h2 class="modal__name"></h2>
           <form class="formContact" id="">
@@ -99,29 +99,29 @@
             </div>
           </form>
         </div>
-        <div class="modal__content-picture" aria-label="image closeup view">
-          <span class="modal__close pictures" aria-label="Close dialog">
+        <div class="modal__content-media" aria-label="image closeup view">
+          <span class="modal__close medias" aria-label="Close dialog">
             <i class="fas fa-times"></i>
           </span>
-          <div class="carouselPictures">
-            <div class="carouselPictures__chevron" role="Previous image" aria-label="Previous image" role="link">
+          <div class="carouselMedias">
+            <div class="carouselMedias__chevron" role="Previous image" aria-label="Previous image" role="link">
               <i class="fas fa-chevron-left" role="link"></i>
             </div>
-            <div class="carouselPictures__pictures" role="imageName">
-              <!--    <div class="carouselPictures__item active">
+            <div class="carouselMedias__medias" role="imageName">
+              <!--    <div class="carouselMedias__item active">
                 <img src="https://cdn.pixabay.com/photo/2020/11/24/10/00/city-5772040__340.jpg" alt="" />
-                <p class="carouselPictures__name">NamePicture</p>
+                <p class="carouselMedias__name">NameMedia</p>
               </div>
-              <div class="carouselPictures__item ">
+              <div class="carouselMedias__item ">
                 <img src="https://cdn.pixabay.com/photo/2021/07/07/13/51/palm-6394391__340.jpg" alt="" />
-                <p class="carouselPictures__name">NamePicture</p>
+                <p class="carouselMedias__name">NameMedia</p>
               </div>
-              <div class="carouselPictures__item">
+              <div class="carouselMedias__item">
                 <img src="https://cdn.pixabay.com/photo/2021/07/17/23/01/dog-6474269__340.jpg" alt="" />
-                <p class="carouselPictures__name">NamePicture</p>
+                <p class="carouselMedias__name">NameMedia</p>
               </div> -->
             </div>
-            <div class="carouselPictures__chevron" role="Next image" aria-label="Next image"  role="link">
+            <div class="carouselMedias__chevron" role="Next image" aria-label="Next image"  role="link">
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>

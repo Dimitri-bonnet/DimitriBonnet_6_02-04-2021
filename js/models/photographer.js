@@ -17,13 +17,14 @@ class Photographer {
     /* HEADER */
     const headerPhotographer = document.createElement("div");
     headerPhotographer.classList.add("photographer__header");
-    headerPhotographer.setAttribute("aria-label", `${this.name}`);
+    /* headerPhotographer.setAttribute("aria-label", `${this.name}`); */
     const linkPhotographer = document.createElement("a");
     linkPhotographer.href = `${url}`;
     headerPhotographer.append(linkPhotographer);
     const imgPhotographer = document.createElement("img");
     imgPhotographer.src = `./assets/Photographers ID Photos/${this.portrait}`;
-    imgPhotographer.alt = "profile picture";
+    imgPhotographer.alt = `photographer`
+    /* imgPhotographer.alt = "profile picture"; */
     const namePhotographer = document.createElement("h2");
     namePhotographer.append(this.name);
     namePhotographer.role = "this.name";
@@ -102,18 +103,11 @@ class Photographer {
     );
   
     this.tags.forEach((tag) => {
-      const url  = new URL(`http://127.0.0.1:5500/?=${tag}`);/* */
       const labelPhotographer = document.createElement("a");
-      labelPhotographer.href = url
       const spanLabel = document.createElement("span");
       spanLabel.setAttribute("aria-label", `${tag}`);
-      spanLabel.addEventListener("click", () => {
-        const hp = new Homepage();
-        hp.filterBytag(tag)
-        console.log(tag);
-      });
       spanLabel.append(labelPhotographer);
-      labelPhotographer.append("#" + tag);
+      spanLabel.append("#" + tag);
       spanLabel.classList.add("btnLabel");
       bannerLabels.append(spanLabel);
     });

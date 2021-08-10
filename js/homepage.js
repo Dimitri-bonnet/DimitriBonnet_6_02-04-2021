@@ -23,20 +23,23 @@ class Homepage {
       });
     });
     const tags = [...new Set(this.tags)];
-    const topBarTags = document.querySelector(".topBar__items ul");
+    const topBarTags = document.querySelector(".topBar__items");
     tags.forEach((tag) => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
       const span = document.createElement("span");
       span.classList.add("btnLabel", "tagFilter");
       span.setAttribute("aria-label", `${tag}`);
-      a.textContent = `#${tag}`;
+      span.setAttribute("role", "tabpanel")
+      span.setAttribute("tabindex", "0")
+      span.textContent = `#${tag}`;       
       span.addEventListener("click", () => {
         this.filterBytag(tag);
       });
-      li.append(span);
-      span.appendChild(a);
-      topBarTags.appendChild(li);
+      span.addEventListener("keypress", (e)=> {
+        if(e.key === 'Enter'){
+          this.filterBytag(tag)
+        }
+      })
+      topBarTags.append(span);
     });
   }
   filterBytag(tag) {
@@ -45,12 +48,6 @@ class Homepage {
     );
     this.photographersFilterBytag = r;
     this.displayPhotographerFilterByTag();
-  }
-  filterBytagPagePhotographer() {
-    const params = new URLSearchParams(window.location.search);
-    const tag = params.get("");
-    console.log(tag);
-    this.filterBytag(tag);
   }
   displayPhotographerFilterByTag() {
     this.removePhotographer();
@@ -61,7 +58,6 @@ class Homepage {
   }
   removePhotographer() {
     const p = document.querySelectorAll(".photographer");
-    console.log(p);
     p.forEach((p) => {
       p.remove();
     });
@@ -84,5 +80,4 @@ class Homepage {
   homePage.displayPhotographer();
   homePage.displayUniqueTag();
   homePage.displayBtnContenu();
-  /* homePage.filterBytagPagePhotographer(); */
 })();

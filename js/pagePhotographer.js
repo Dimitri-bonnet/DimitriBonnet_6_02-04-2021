@@ -18,38 +18,44 @@ class PagePhotographer {
     const dataPhotographers = await service.getPhotographers();
     this.photographer = dataPhotographers.filter(
       (photographer) => photographer.id == photographerId
-    );
+    )[0];
   }
+
   async displayPhotographerBanner() {
-    this.photographer.forEach((photographer) => {
-      photographer.createphotographerBanner();
-    });
+    this.photographer.createphotographerBanner();
   }
   async displayMedias() {
-    const containerPicture = document.querySelector(
+    const containerMedia = document.querySelector(
       ".containerPhotographerSelected__imgs"
     );
-
     this.medias.forEach((media) => {
       const content = document.createElement("div");
-      content.classList.add("picture");
-      /* PICTURE */
+      content.classList.add("media");
+      /* Media */
       const img = document.createElement("img");
-      img.classList.add("modalOpenPicture", "picture__img");
-      img.src = `../assets/Mimi Keel/${media.img}`;
+      img.classList.add("modalOpenMedia", "Media__img");
+      img.src = `../assets/${this.photographer.name}/${media.img}`;
       img.setAttribute("aria-label", `${media.title}, closeup view`);
+      img.setAttribute("tabindex", "0");
       img.addEventListener("click", (e) => {
         const modal = new Modal();
         modal.lauchModal(e, media);
       });
+      img.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          console.log("openModal");
+          const modal = new Modal();
+          modal.lauchModal(e, media);
+        }
+      });
       /* INFO */
-      const pictureInfo = document.createElement("div");
-      pictureInfo.classList.add("picture__info");
+      const mediaInfo = document.createElement("div");
+      mediaInfo.classList.add("media__info");
       const title = document.createElement("p");
-      title.classList.add("picture__info-name");
+      title.classList.add("media__info-name");
       title.textContent = media.title;
-      const pictureInfoInfo = document.createElement("div");
-      pictureInfoInfo.classList.add("picture__info-info");
+      const mediaInfoInfo = document.createElement("div");
+      mediaInfoInfo.classList.add("media__info-info");
       const price = document.createElement("p");
       price.classList.add("mr-2");
       price.textContent = `${media.price} €`;
@@ -57,28 +63,25 @@ class PagePhotographer {
       like.textContent = media.likes;
       const logoLike = document.createElement("i");
       logoLike.classList.add("fas", "fa-heart", "ml-2");
-      logoLike.setAttribute("aria-label", "likes");
-      logoLike.setAttribute("aria-hidden", "false"); //TODO WHY ARIA HIDDEN IS TRUE ?
-      like.append(logoLike);
-      content.append(img, pictureInfo);
-      pictureInfoInfo.append(price, like);
-      pictureInfo.append(title, pictureInfoInfo);
-      containerPicture.append(content);
+      /* console.log(logoLike); */
+      content.append(img, mediaInfo);
+      mediaInfoInfo.append(price, like);
+      mediaInfoInfo.appendChild(logoLike);
+      mediaInfo.append(title, mediaInfoInfo);
+      containerMedia.append(content);
     });
   }
   async displayMediasSlider() {
-    const containerSlider = document.querySelector(
-      ".carouselPictures__pictures"
-    );
+    const containerSlider = document.querySelector(".carouselMedias__medias");
     this.medias.forEach((media) => {
       const content = document.createElement("div");
-      content.classList.add("carouselPictures__item");
+      content.classList.add("carouselMedias__item");
       const img = document.createElement("img");
-      img.src = `../assets/Mimi Keel/${media.img}`;
+      img.src = `../assets/${this.photographer.name}/${media.img}`;
       img.setAttribute("aria-label", `${media.title}`);
       img.alt = `${media.title}`;
       const name = document.createElement("p");
-      name.classList.add("carouselPictures__name");
+      name.classList.add("carouselMedias__name");
       name.append(media.title);
       content.append(img, name);
       containerSlider.append(content);
@@ -121,7 +124,7 @@ class PagePhotographer {
     });
   }
   removeMedia() {
-    const medias = document.querySelectorAll(".picture");
+    const medias = document.querySelectorAll(".media");
     medias.forEach((m) => {
       m.remove();
     });
@@ -131,11 +134,11 @@ class PagePhotographer {
   const pagePhotographer = new PagePhotographer();
   await pagePhotographer.filterPhotographer();
   await pagePhotographer.filterMedias();
-  await pagePhotographer.displayMedias();
-  await pagePhotographer.displayPhotographerBanner();
-  await pagePhotographer.totalLikes();
-  await pagePhotographer.displayMediasSlider();
+  pagePhotographer.displayMedias();
+  pagePhotographer.displayPhotographerBanner();
+  pagePhotographer.totalLikes();
+  pagePhotographer.displayMediasSlider();
   pagePhotographer.sortByPop();
-  await pagePhotographer.sortByName();
+  pagePhotographer.sortByName();
   pagePhotographer.sortByDate();
 })();

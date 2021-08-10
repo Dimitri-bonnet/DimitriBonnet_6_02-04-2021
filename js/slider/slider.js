@@ -1,88 +1,66 @@
 class Slider {
   constructor() {}
-  selectedMedia(media) {
+  initSlider(media, e) {
     console.log(media);
-    const itemsPictureSlider = document.querySelectorAll(
-      ".carouselPictures__item"
+    console.log(e.target);
+    let count = 0;
+    const itemMediaSlider = document.querySelectorAll(
+      ".carouselMedias__item"
     );
-    const nbSlide = itemsPictureSlider.length;
-    itemsPictureSlider[0].classList.add("active");
-  }
-  previousPicture(count) {
-    console.log(count);
+    console.log(itemMediaSlider);
+    itemMediaSlider[4].classList.add("active");
+    document.addEventListener("keydown", this.keyPress);
+    const nbSlide = itemMediaSlider.length;
+    const previousMedia = document.querySelector(".fa-chevron-left");
+    const nextMedia = document.querySelector(".fa-chevron-right");
+    previousMedia.addEventListener("click", () => {
+      this.previousMedia(nbSlide, count);
+    });
+    nextMedia.addEventListener("click", () => {
+      this.nextMedia(nbSlide, count);
+    });
 
-    /*  itemsPictureSlider[count].classList.remove("active");
+  }
+
+  previousMedia(nbSlide, count) {
     console.log("previous");
+    console.log(nbSlide);
+    console.log(count);
+    if (count > 0) {
+      count--;
+      console.log("count --");
+    } else {
+      count = nbSlide - 1;
+    }
+    console.log(count);
+    /*  
+
+    itemsMediaSlider[count].classList.remove("active");
     if (count > 0) {
       count--;
     } else {
       count = nbSlide - 1;
     }
-    itemsPictureSlider[count].classList.add("active"); */
+    itemsMediaSlider[count].classList.add("active"); */
   }
 
-  /*   nextPicture() {
+  nextMedia(nbSlide, count) {
     console.log("next");
-    itemsPicture[count].classList.remove("active");
+    console.log(count);
+    console.log(nbSlide);
+    /* itemsMedia[count].classList.remove("active"); */
     if (count < nbSlide - 1) {
       count++;
     } else {
       count = 0;
     }
-    itemsPicture[count].classList.add("active");
-  } */
+    /*  itemsMedia[count].classList.add("active"); */
+  }
   keyPress = (e) => {
-    //TODO FONCTIONNE UNIQUEMENT QUAND MODAL PICTURE EST OPEN
     if (e.keyCode === 37) {
-      this.previousPicture();
+      this.previousMedia();
     } else if (e.keyCode === 39) {
-      this.nextPicture();
+      this.nextMedia();
     }
   };
 }
-let count = 0;
-const slider = new Slider();
-const previousPicture = document.querySelector(".fa-chevron-left");
-const nextPicture = document.querySelector(".fa-chevron-right");
-previousPicture.addEventListener("click", () => {
-  slider.previousPicture(count);
-});
-nextPicture.addEventListener("click", () => {
-  slider.nextPicture();
-});
-document.addEventListener("keydown", slider.keyPress);
-(async function () {
-  /* const itemsPictureSlider = document.querySelectorAll(".carouselPictures__item");
-console.log(itemsPictureSlider);
-const nbSlide = itemsPictureSlider.length;
-console.log(nbSlide);
-*/
-})();
-
-/* Dom elements */
-/* SLIDER */
-/* const leftSlider = document.querySelector(".fa-chevron-left");
-const rightSlider = document.querySelector(".fa-chevron-right");
-const itemsPicture = document.querySelectorAll(".carouselPictures__item"); */
-/* const nbSlide = itemsPicture.length;
-let count = 0; */
-/* previousPicture = () => {
-  console.log("previous");
-  itemsPicture[count].classList.remove("active");
-  if (count > 0) {
-    count--;
-  } else {
-    count = nbSlide - 1;
-  }
-  itemsPicture[count].classList.add("active");
-};
-nextPicture = () => {
-  console.log("Next");
-  itemsPicture[count].classList.remove("active");
-  if (count < nbSlide - 1) {
-    count++;
-  } else {
-    count = 0;
-  }
-  itemsPicture[count].classList.add("active");
-}; */

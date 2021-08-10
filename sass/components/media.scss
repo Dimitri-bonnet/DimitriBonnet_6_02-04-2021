@@ -1,6 +1,6 @@
 @import "../utils/variables";
 
-.picture {
+.media {
   width: 28vw;
   min-width: 280px;
   img {
@@ -18,12 +18,14 @@
     &-info {
       margin: 10px 0;
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      background-color: aqua;
     }
   }
 }
 @media screen and (max-width: $breakPointMobile) {
-  .picture {
+  .media {
     margin: 0 15px;
     &__img {
       width: 100%;
