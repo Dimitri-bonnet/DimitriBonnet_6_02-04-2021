@@ -22,9 +22,7 @@ class Video {
     this.tags = data.tags;
     this.title = data.title;
   }
-  itemVideo(){
-      
-  }
+  itemVideo() {}
 }
 class Image {
   constructor(data) {
@@ -37,9 +35,7 @@ class Image {
     this.tags = data.tags;
     this.title = data.title;
   }
-  itemImage(){
-    
-  }
+  itemImage() {}
 }
 class Factory {
   constructor(type, data) {
