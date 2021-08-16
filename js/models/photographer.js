@@ -120,5 +120,12 @@ class Photographer {
     modalContactName.ariaLabel = `contact me ${this.name}`;
     const modalContactContent = document.querySelector(".modal__content-form");
     modalContactContent.ariaLabel = `contact me ${this.name}`;
+    const openModalForm = document.querySelectorAll(".modalOpenForm");
+    openModalForm.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const modal = new Modal();
+        modal.lauchModal(e);
+      });
+    });
   };
 }

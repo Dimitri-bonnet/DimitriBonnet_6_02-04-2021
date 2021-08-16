@@ -239,6 +239,7 @@
 /* BREAKPOINT */
 .photographer {
   width: 28vw;
+  flex-grow: 1;
   margin: 5px;
 }
 .photographer__header {
@@ -537,9 +538,7 @@
   min-height: 93vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
-  /*    background: chartreuse; */
 }
 
 /* COLORS */
@@ -562,7 +561,7 @@
   display: flex;
   align-items: center;
 }
-.containerPhotographerSelected__imgs {
+.containerPhotographerSelected__medias {
   padding: 10px 0;
   display: flex;
   align-items: center;
@@ -612,6 +611,9 @@
   }
   .containerPhotographerSelected__brand {
     margin: 30px 0px 0px 30px;
+  }
+  .containerPhotographerSelected__medias {
+    justify-content: center;
   }
   .containerPhotographerSelected__sort {
     display: none;

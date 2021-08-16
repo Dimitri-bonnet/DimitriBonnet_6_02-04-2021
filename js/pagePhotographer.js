@@ -5,6 +5,8 @@ class PagePhotographer {
     this.photographer = {};
     this.medias = [];
     this.sortedMedias = [];
+    this.modal = new Modal();
+    this.slider = new Slider();
   }
   async filterMedias() {
     const service = new Service();
@@ -20,32 +22,30 @@ class PagePhotographer {
       (photographer) => photographer.id == photographerId
     )[0];
   }
-
   async displayPhotographerBanner() {
     this.photographer.createphotographerBanner();
   }
   async displayMedias() {
     const containerMedia = document.querySelector(
-      ".containerPhotographerSelected__imgs"
+      ".containerPhotographerSelected__medias"
     );
-    this.medias.forEach((media) => {
+    this.medias.forEach((media, index) => {
       const content = document.createElement("div");
       content.classList.add("media");
       /* Media */
       const img = document.createElement("img");
-      img.classList.add("modalOpenMedia", "Media__img");
+      img.classList.add("modalOpenMedia");
       img.src = `../assets/${this.photographer.name}/${media.img}`;
       img.setAttribute("aria-label", `${media.title}, closeup view`);
       img.setAttribute("tabindex", "0");
       img.addEventListener("click", (e) => {
-        const modal = new Modal();
-        modal.lauchModal(e, media);
+        this.modal.lauchModal(e, this.slider);
+        this.slider.findIndex(index);
       });
       img.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
-          console.log("openModal");
-          const modal = new Modal();
-          modal.lauchModal(e, media);
+          this.modal.lauchModal(e);
+          this.slider.findIndex(index);
         }
       });
       /* INFO */
@@ -63,7 +63,6 @@ class PagePhotographer {
       like.textContent = media.likes;
       const logoLike = document.createElement("i");
       logoLike.classList.add("fas", "fa-heart", "ml-2");
-      /* console.log(logoLike); */
       content.append(img, mediaInfo);
       mediaInfoInfo.append(price, like);
       mediaInfoInfo.appendChild(logoLike);
@@ -107,7 +106,7 @@ class PagePhotographer {
       this.displayMedias();
     });
   }
-  async sortByName() {
+  sortByName() {
     const btnSortName = document.querySelector(".name");
     btnSortName.addEventListener("click", () => {
       this.removeMedia();
@@ -129,6 +128,24 @@ class PagePhotographer {
       m.remove();
     });
   }
+  nextMediaSlider() {
+    const nextMedia = document.querySelector(".fa-chevron-right");
+    nextMedia.addEventListener("click", () => {
+      this.slider.nextMedia();
+    });
+  }
+  previousMediaSlider() {
+    const previousMedia = document.querySelector(".fa-chevron-left");
+    previousMedia.addEventListener("click", () => {
+      this.slider.previousMedia();
+    });
+  }
+  closeSlider() {
+    const close = document.querySelector(".modal__close.medias");
+    close.addEventListener("click", () => {
+      this.slider.closeSlider();
+    });
+  }
 }
 (async function () {
   const pagePhotographer = new PagePhotographer();
@@ -138,7 +155,13 @@ class PagePhotographer {
   pagePhotographer.displayPhotographerBanner();
   pagePhotographer.totalLikes();
   pagePhotographer.displayMediasSlider();
+  /* SORT */
   pagePhotographer.sortByPop();
   pagePhotographer.sortByName();
   pagePhotographer.sortByDate();
+  /* SLIDER */
+  pagePhotographer.nextMediaSlider();
+  pagePhotographer.previousMediaSlider();
+  pagePhotographer.closeSlider();
+  /*   pagePhotographer.keyPressSlider(); */
 })();

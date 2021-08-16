@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
   }
-  &__imgs {
+  &__medias {
     padding: 10px 0;
     display: flex;
     align-items: center;
@@ -61,6 +61,9 @@
     padding: 0;
     &__brand {
       margin: 30px 0px 0px 30px;
+    }
+    &__medias{
+      justify-content: center;
     }
     &__sort {
       display: none;

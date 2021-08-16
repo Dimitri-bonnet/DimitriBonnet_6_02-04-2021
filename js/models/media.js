@@ -22,7 +22,17 @@ class Video {
     this.tags = data.tags;
     this.title = data.title;
   }
-  itemVideo() {}
+  itemVideo() {
+    const video = document.createElement("video");
+    video.classList.add("modalOpenMedia");
+    video.srcObject = `/assets/${this.photographer.name}/${media.video}`;
+    video.setAttribute("aria-label", `${media.title}, closeup view`)
+    video.setAttribute("tabindex", "0")
+    video.addEventListener("click", (e) => {
+      const modal = new Modal();
+      modal.lauchModal(e,media)
+    })
+  }
 }
 class Image {
   constructor(data) {
@@ -35,11 +45,21 @@ class Image {
     this.tags = data.tags;
     this.title = data.title;
   }
-  itemImage() {}
+  itemImage() {
+    const img = document.createElement("img");
+    img.classList.add("modalOpenMedia");
+    img.src = `../assets/${this.photographer.name}/${media.img}`;
+    img.setAttribute("aria-label", `${media.title}, closeup view`);
+    img.setAttribute("tabindex", "0");
+    img.addEventListener("click", (e) => {
+      const modal = new Modal();
+      modal.lauchModal(e, media);
+    });
+  }
 }
 class Factory {
-  constructor(type, data) {
-    if (type === "image") {
+  constructor(media, data) {
+    if (media === "image") {
       return new Image(data);
     } else {
       return new Video(data);

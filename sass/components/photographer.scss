@@ -1,64 +1,64 @@
 @import "../utils/variables";
 
-
-.photographer{
+.photographer {
   width: 28vw;
+  flex-grow: 1;
   margin: 5px;
-  &__header{
+  &__header {
     text-align: center;
-    a{
+    a {
       text-decoration: none;
     }
-    img{
+    img {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
     }
-    h2{
+    h2 {
       font-size: 25px;
       color: $secondary;
     }
   }
-  &__main{
+  &__main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: 50px;
-    .location{
+    .location {
       display: flex;
       justify-content: space-around;
       align-items: center;
       font-size: 12px;
       color: $primary;
-      &__city{
+      &__city {
         margin-right: 5px;
       }
     }
-    .tagline{
+    .tagline {
       font-size: 10px;
     }
-    .price{
+    .price {
       color: $tertiary;
       font-size: 8px;
     }
   }
-  &__footer{
+  &__footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    a{
+    a {
       text-decoration: none;
     }
   }
 }
-.hiddenPhotographer{
+.hiddenPhotographer {
   display: none;
 }
 @media screen and (max-width: $breakPointMobile) {
-    .photographer{
-      margin: 15px;
-      width: 100%; 
-    }
+  .photographer {
+    margin: 15px;
+    width: 100%;
   }
+}
