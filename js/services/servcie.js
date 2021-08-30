@@ -3,7 +3,6 @@ const _urlApi =
 
 class Service {
   constructor() {}
-
   async getPhotographers() {
     const response = await fetch(_urlApi);
     const data = await response.json();
@@ -31,19 +30,13 @@ class Service {
     const dataMedias = data["media"];
     const medias = [];
     dataMedias.forEach((media) => {
-      medias.push(
-        new Media(
-          media.date,
-          media.id,
-          media.image,
-          media.likes,
-          media.photographerId,
-          media.price,
-          media.tags,
-          media.title,
-          media.video
-        )
-      );
+      let _media = null;
+      if (media.image != undefined) {
+        _media = new FactoryMedia("image", media);
+      } else {
+        _media = new FactoryMedia("video", media);
+      }
+      medias.push(_media);
     });
     return medias;
   }

@@ -3,9 +3,12 @@ class Modal {
   lauchModal(e, slider) {
     const modal = document.querySelector(".bgGround");
     const clossModal = document.querySelectorAll(".modal__close");
+    const modalContent = document.querySelector(".modal__content");
     const contentModalForm = document.querySelector(".modal__content-form");
     const contentModalMedia = document.querySelector(".modal__content-media");
     modal.style.display = "block";
+    modalContent.setAttribute("tabIndex", "-1");
+    modalContent.focus()
     if (e.target.classList.contains("modalOpenForm")) {
       contentModalMedia.style.display = "none";
       contentModalForm.style.display = "block";

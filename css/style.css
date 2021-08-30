@@ -149,14 +149,22 @@
   font-weight: 600;
   cursor: pointer;
   font-size: 12px;
+  /*   &:hover {
+      .fa-chevron-up {
+        display: block;
+      }
+      .fa-chevron-down {
+        display: none;
+      }
+    } */
 }
 .dropDown__btn .fa-chevron-up {
   display: none;
 }
-.dropDown__btn:hover .fa-chevron-up {
+.dropDown__btn:focus .fa-chevron-up {
   display: block;
 }
-.dropDown__btn:hover .fa-chevron-down {
+.dropDown__btn:focus .fa-chevron-down {
   display: none;
 }
 .dropDown__btn-main {
@@ -173,7 +181,10 @@
   border-top: 1px solid white;
   cursor: pointer;
 }
-.dropDown__btn:hover .dropDown__btn-content {
+.dropDown__btn:active .dropDown__btn-content {
+  display: block;
+}
+.dropDown__btn:focus .dropDown__btn-content {
   display: block;
 }
 
@@ -386,8 +397,16 @@
 .media {
   width: 28vw;
   min-width: 280px;
+  color: #901c1c;
 }
 .media img {
+  cursor: pointer;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.media video {
   cursor: pointer;
   width: 100%;
   height: 400px;
@@ -398,14 +417,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #901c1c;
 }
 .media__info-info {
   margin: 10px 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: aqua;
 }
 
 @media screen and (max-width: 580px) {
@@ -441,7 +457,8 @@
   z-index: 6;
   border-radius: 4px;
   min-width: 300px;
-  width: 40vw;
+  width: 60vw;
+  max-width: 500px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -499,11 +516,19 @@
   font-size: 25px;
   cursor: pointer;
   margin: 20px;
+  background-color: white;
+  border: none;
 }
 .bgGround .modal__content-media .carouselMedias__medias img {
   min-width: 200px;
-  width: 30vw;
-  height: 300px;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+.bgGround .modal__content-media .carouselMedias__medias video {
+  min-width: 200px;
+  width: 100%;
+  height: 500px;
   object-fit: cover;
 }
 .bgGround .modal__content-media .carouselMedias__medias .carouselMedias__item {
@@ -566,7 +591,8 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  /* justify-content: space-between; */
 }
 
 .stickyBanner {

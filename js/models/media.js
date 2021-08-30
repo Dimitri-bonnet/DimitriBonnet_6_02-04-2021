@@ -1,37 +1,50 @@
-class Media {
-  constructor(date, id, image, likes, photographId, price, tags, title, video) {
-    this.date = date;
-    this.id = id;
-    this.img = image;
-    this.likes = likes;
-    this.photographId = photographId;
-    this.price = price;
-    this.tags = tags;
-    this.title = title;
-    this.video = video;
-  }
-}
 class Video {
   constructor(data) {
     this.date = data.date;
     this.id = data.id;
     this.video = data.video;
     this.likes = data.likes;
-    this.photographId = data.photographId;
+    this.photographId = data.photographerId;
     this.price = data.price;
     this.tags = data.tags;
     this.title = data.title;
+    this.photographerName = "";
   }
-  itemVideo() {
-    const video = document.createElement("video");
-    video.classList.add("modalOpenMedia");
-    video.srcObject = `/assets/${this.photographer.name}/${media.video}`;
-    video.setAttribute("aria-label", `${media.title}, closeup view`)
-    video.setAttribute("tabindex", "0")
-    video.addEventListener("click", (e) => {
-      const modal = new Modal();
-      modal.lauchModal(e,media)
-    })
+  displayItemMedias() {
+    const containerMedia = document.querySelector(
+      ".containerPhotographerSelected__medias"
+    );
+    const templateVideo = `
+    <div class="media">
+      <video  class="modalOpenMedia" aria-label="${this.title}, closeup view" tabindex="0">
+        <source src="/assets/${this.photographerName}/${this.video}"
+            type="video/mp4">
+         Sorry, your browser doesn't support embedded videos.
+        </video>
+        <div class="media__info">
+            <p class="mr-2"> ${this.title}</p>
+            <div class="media__info-info" aria-label="likes" tabindex="0">
+              <p>${this.likes}</p>
+              <i class="fas fa-heart ml-2"></i>
+            </div>
+        </div>
+    </div>
+    `;
+    containerMedia.insertAdjacentHTML("beforeend", templateVideo);
+  }
+  displayItemMediasSlider() {
+    const containerSlider = document.querySelector(".carouselMedias__medias");
+    const templateVideoSlider = `
+    <div class="carouselMedias__item">
+      <video controls class="modalOpenMedia" >
+        <source src="/assets/${this.photographerName}/${this.video}"
+          type="video/mp4">
+        Sorry, your browser doesn't support embedded videos.
+        </video>
+      <p>${this.title}</p>
+    </div>
+    `;
+    containerSlider.insertAdjacentHTML("beforeend", templateVideoSlider);
   }
 }
 class Image {
@@ -40,24 +53,42 @@ class Image {
     this.id = data.id;
     this.img = data.image;
     this.likes = data.likes;
-    this.photographId = data.photographId;
+    this.photographId = data.photographerId;
     this.price = data.price;
     this.tags = data.tags;
     this.title = data.title;
+    this.photographerName = "";
   }
-  itemImage() {
-    const img = document.createElement("img");
-    img.classList.add("modalOpenMedia");
-    img.src = `../assets/${this.photographer.name}/${media.img}`;
-    img.setAttribute("aria-label", `${media.title}, closeup view`);
-    img.setAttribute("tabindex", "0");
-    img.addEventListener("click", (e) => {
-      const modal = new Modal();
-      modal.lauchModal(e, media);
-    });
+  displayItemMedias() {
+    const containerMedia = document.querySelector(
+      ".containerPhotographerSelected__medias"
+    );
+    const templateImg = `
+    <div class="media">
+      <img class="modalOpenMedia" aria-label="${this.title}, closeup view" tabindex="0" src="/assets/${this.photographerName}/${this.img}" alt="${this.title}">
+      <div class="media__info">
+        <p class="mr-2">${this.title}</p>
+        <div class="media__info-info" aria-label="likes" tabindex="0">
+          <p>${this.likes}</p>
+          <i class="fas fa-heart ml-2"></i>
+        </div>
+      </div>
+    </div>
+    `;
+    containerMedia.insertAdjacentHTML("beforeend", templateImg);
+  }
+  displayItemMediasSlider() {
+    const containerSlider = document.querySelector(".carouselMedias__medias");
+    const templateImageSlider = `
+      <div class="carouselMedias__item">
+        <img src="/assets/${this.photographerName}/${this.img}" aria-label="${this.title}" alt="${this.title}">
+        <p>${this.title}</p>
+      </div>
+    `;
+    containerSlider.insertAdjacentHTML("beforeend", templateImageSlider);
   }
 }
-class Factory {
+class FactoryMedia {
   constructor(media, data) {
     if (media === "image") {
       return new Image(data);

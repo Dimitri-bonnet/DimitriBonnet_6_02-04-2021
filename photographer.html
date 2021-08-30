@@ -29,7 +29,7 @@
             <h1 class="mr-3">
             </h1>
             <!-- </header> -->
-            <button type="button" class="btn modalOpenForm" role="Contact me" aria-label="Contact me">
+            <button type="button" class="btn modalOpenForm"  aria-label="Contact me">
               Contactez-moi
             </button>
           </div>
@@ -45,15 +45,27 @@
         <div class="mr-2">
           <p>Trier par</p>
         </div>
+     <!--    <button class="pop">pop</button>
+        <button class="date">date</button>
+        <button class="name">titre</button> -->
+            <div class="dropDownN">
+              <div >
+                <button class="btn pop">Popularité</button>
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-chevron-up"></i>
+              </div>
+              <button class="btn date">Date</button>
+              <button class="btn name">Titre</button>
+            </div>
         <div class="dropDown">
-          <button class="dropDown__btn" aria-haspopup="listbox" aria-expanded="true" aria-label="Order by" tabindex="0">
+          <button class="dropDown__btn" role="button" aria-haspopup="listbox" aria-expanded="true" aria-label="Order by" >
             <div class="dropDown__btn-main popularite">
               <p class="mr-2 pop">Popularité</p>
               <i class="fas fa-chevron-down"></i>
               <i class="fas fa-chevron-up"></i>
             </div>
-            <div class="dropDown__btn-content">
-             <!--  <button class="item date">Date</button>
+            <div class="dropDown__btn-content" tabindex="0">
+              <!--  <button class="item date">Date</button>
               <button class="item name">Titre</button> -->
               <div class="item date" role="option">Date</div>
               <div class="item name" role="option">Titre</div>
@@ -63,14 +75,14 @@
         </div>
       </div>
       <div class="containerPhotographerSelected__medias">
-          <!-- Here : template Media -->
+        <!-- Here : template Media -->
       </div>
     </main>
   </div>
   <div class="bgGround">
-    <div class="modal">
-      <div class="modal__content">
-        <button class="modal__close contact btnCloseModal" role="Close Contact form" aria-label="">
+    <div class="modal" >
+      <div class="modal__content" id="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogClose">
+        <button class="modal__close contact btnCloseModal" id="dialogClose" aria-label="Close Contact form">
           <i class="fas fa-times"></i>
         </button>
         <div class="modal__content-form" role="dialog" aria-label="Contacte me">
@@ -100,30 +112,19 @@
           </form>
         </div>
         <div class="modal__content-media" aria-label="image closeup view">
-          <button class="modal__close medias btnCloseModal"  aria-label="Close dialog">
+          <button class="modal__close medias btnCloseModal" aria-label="Close dialog">
             <i class="fas fa-times"></i>
           </button>
           <div class="carouselMedias">
-            <div class="carouselMedias__chevron" role="Previous image" aria-label="Previous image" role="link">
+            <button class="carouselMedias__chevron" role="Previous image" aria-label="Previous image" role="link">
               <i class="fas fa-chevron-left" role="link"></i>
-            </div>
+            </button>
             <div class="carouselMedias__medias" role="imageName">
-              <!--    <div class="carouselMedias__item">
-                <img src="https://cdn.pixabay.com/photo/2020/11/24/10/00/city-5772040__340.jpg" alt="" />
-                <p class="carouselMedias__name">NameMedia</p>
-              </div>
-              <div class="carouselMedias__item ">
-                <img src="https://cdn.pixabay.com/photo/2021/07/07/13/51/palm-6394391__340.jpg" alt="" />
-                <p class="carouselMedias__name">NameMedia</p>
-              </div>
-              <div class="carouselMedias__item">
-                <img src="https://cdn.pixabay.com/photo/2021/07/17/23/01/dog-6474269__340.jpg" alt="" />
-                <p class="carouselMedias__name">NameMedia</p>
-              </div> -->
+              <!-- Here : template media slider -->
             </div>
-            <div class="carouselMedias__chevron" role="Next image" aria-label="Next image"  role="link">
+            <button class="carouselMedias__chevron" role="Next image" aria-label="Next image" role="link">
               <i class="fas fa-chevron-right"></i>
-            </div>
+            </button>
           </div>
         </div>
       </div>

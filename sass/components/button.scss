@@ -48,6 +48,9 @@
   }
 }
 
+.dropDownN{
+  
+}
 .dropDown {
   position: relative;
   &__btn {
@@ -60,10 +63,18 @@
     font-weight: 600;
     cursor: pointer;
     font-size: 12px;
-    .fa-chevron-up {
+    .fa-chevron-up {  
       display: none;
     }
-    &:hover {
+  /*   &:hover {
+      .fa-chevron-up {
+        display: block;
+      }
+      .fa-chevron-down {
+        display: none;
+      }
+    } */
+    &:focus {
       .fa-chevron-up {
         display: block;
       }
@@ -85,7 +96,12 @@
         cursor: pointer;
       }
     }
-    &:hover {
+    &:active {
+      .dropDown__btn-content {
+        display: block;
+      }
+    }
+    &:focus {
       .dropDown__btn-content {
         display: block;
       }

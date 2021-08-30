@@ -14,7 +14,8 @@
     z-index: 6;
     border-radius: 4px;
     min-width: 300px;
-    width: 40vw;
+    width: 60vw;
+    max-width: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -74,12 +75,20 @@
             font-size: 25px;
             cursor: pointer;
             margin: 20px;
+            background-color: white;
+            border: none;
           }
           &__medias {
             img {
               min-width: 200px;
-              width: 30vw;
-              height: 300px;
+              width: 100%;
+              height: 500px;
+              object-fit: cover;
+            }
+            video{
+              min-width: 200px;
+              width: 100%;
+              height: 500px;
               object-fit: cover;
             }
             .carouselMedias__item {
