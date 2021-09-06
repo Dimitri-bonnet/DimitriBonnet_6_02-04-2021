@@ -1,11 +1,16 @@
 class Modal {
   constructor() {}
-  lauchModal(e, slider) {
+  lauchModal(e) {
     const modal = document.querySelector(".bgGround");
     const clossModal = document.querySelectorAll(".modal__close");
     const modalContent = document.querySelector(".modal__content");
     const contentModalForm = document.querySelector(".modal__content-form");
     const contentModalMedia = document.querySelector(".modal__content-media");
+    const containerPhotographerSelected = document.querySelector(".containerPhotographerSelected");
+    console.log(containerPhotographerSelected);
+    containerPhotographerSelected.setAttribute("aria-hideen", "true")
+    containerPhotographerSelected.setAttribute("tabindex", "-1")
+    modalContent.setAttribute("aria-hidden", "false")
     modal.style.display = "block";
     modalContent.setAttribute("tabIndex", "-1");
     modalContent.focus()
@@ -20,7 +25,7 @@ class Modal {
     } else if (e.target.classList.contains("modalOpenMedia")) {
       contentModalForm.style.display = "none";
       contentModalMedia.style.display = " block";
-      document.addEventListener("keydown", (e) => {
+     /*  document.addEventListener("keydown", (e) => {
         if (e.keyCode === 27) {
           this.closeModal(modal);
         } else if (e.keyCode === 37) {
@@ -30,7 +35,7 @@ class Modal {
         } else if (e.keyCode === 27) {
           slider.closeSlider();
         }
-      });
+      }); */
     }
     clossModal.forEach((btn) =>
       btn.addEventListener("click", () => {

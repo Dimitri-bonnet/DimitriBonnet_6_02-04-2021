@@ -29,7 +29,7 @@
             <h1 class="mr-3">
             </h1>
             <!-- </header> -->
-            <button type="button" class="btn modalOpenForm"  aria-label="Contact me">
+            <button type="button" class="btn modalOpenForm" aria-label="Contact me">
               Contactez-moi
             </button>
           </div>
@@ -42,36 +42,25 @@
         </div>
       </div>
       <div class="containerPhotographerSelected__sort">
-        <div class="mr-2">
+        <div class="mr-2 m-2">
           <p>Trier par</p>
         </div>
-     <!--    <button class="pop">pop</button>
-        <button class="date">date</button>
-        <button class="name">titre</button> -->
-            <div class="dropDownN">
-              <div >
-                <button class="btn pop">Popularité</button>
-                <i class="fas fa-chevron-down"></i>
-                <i class="fas fa-chevron-up"></i>
-              </div>
-              <button class="btn date">Date</button>
-              <button class="btn name">Titre</button>
-            </div>
-        <div class="dropDown">
-          <button class="dropDown__btn" role="button" aria-haspopup="listbox" aria-expanded="true" aria-label="Order by" >
-            <div class="dropDown__btn-main popularite">
-              <p class="mr-2 pop">Popularité</p>
-              <i class="fas fa-chevron-down"></i>
-              <i class="fas fa-chevron-up"></i>
-            </div>
-            <div class="dropDown__btn-content" tabindex="0">
-              <!--  <button class="item date">Date</button>
-              <button class="item name">Titre</button> -->
-              <div class="item date" role="option">Date</div>
-              <div class="item name" role="option">Titre</div>
-            </div>
-
+        <div class="drop">
+          <button class="btnDrop sort pop">
+            Popularité
+            <i class="fas fa-chevron-up ml-2"></i>
+            <i class="fas fa-chevron-down ml-2"></i>
           </button>
+          <div class="drop__content">
+            <div class="drop__content-btn">
+              <button class="btnDrop sort date">
+                Date
+              </button>
+              <button class="btnDrop sort name">
+                Titre
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="containerPhotographerSelected__medias">
@@ -79,9 +68,9 @@
       </div>
     </main>
   </div>
-  <div class="bgGround">
-    <div class="modal" >
-      <div class="modal__content" id="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogClose">
+  <div class="bgGround" tabindex="-1" id="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogClose">
+    <div class="modal">
+      <div class="modal__content">
         <button class="modal__close contact btnCloseModal" id="dialogClose" aria-label="Close Contact form">
           <i class="fas fa-times"></i>
         </button>
@@ -116,13 +105,13 @@
             <i class="fas fa-times"></i>
           </button>
           <div class="carouselMedias">
-            <button class="carouselMedias__chevron" role="Previous image" aria-label="Previous image" role="link">
+            <button class="carouselMedias__chevron" aria-label="Previous image" role="link">
               <i class="fas fa-chevron-left" role="link"></i>
             </button>
             <div class="carouselMedias__medias" role="imageName">
               <!-- Here : template media slider -->
             </div>
-            <button class="carouselMedias__chevron" role="Next image" aria-label="Next image" role="link">
+            <button class="carouselMedias__chevron" aria-label="Next image" role="link">
               <i class="fas fa-chevron-right"></i>
             </button>
           </div>

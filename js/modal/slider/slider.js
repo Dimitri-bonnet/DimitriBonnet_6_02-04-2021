@@ -5,7 +5,6 @@ class Slider {
     this.nbSlider;
   }
   findIndex(index) {
-    console.log(index);
     const itemMediaSlider = document.querySelectorAll(".carouselMedias__item");
     itemMediaSlider.forEach((item) => {
       item.classList.remove("active");

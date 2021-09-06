@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+    "sass": "sass --watch  ./sass/main.scss:./css/style.css"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^7.22.0"
+  },
+  "dependencies": {
+    "sass": "^1.38.2"
   }
 }

@@ -46,69 +46,93 @@
     background: $primary;
     color: white;
   }
-}
-
-.dropDownN{
-  
-}
-.dropDown {
-  position: relative;
-  &__btn {
-    position: absolute;
-    top: -18px;
-    background: $primary;
-    color: white;
-    border: none;
-    border-radius: $borderRadiusBtn;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 12px;
-    .fa-chevron-up {  
-      display: none;
-    }
-  /*   &:hover {
-      .fa-chevron-up {
-        display: block;
-      }
-      .fa-chevron-down {
-        display: none;
-      }
-    } */
-    &:focus {
-      .fa-chevron-up {
-        display: block;
-      }
-      .fa-chevron-down {
-        display: none;
-      }
-    }
-    &-main {
-      display: flex;
-      padding: 14px 12px;
-    }
-    &-content {
-      display: none;
-      padding: 5px;
-      .item {
-        padding: 14px 12px;
-        text-align: left;
-        border-top: 1px solid white;
-        cursor: pointer;
-      }
-    }
-    &:active {
-      .dropDown__btn-content {
-        display: block;
-      }
-    }
-    &:focus {
-      .dropDown__btn-content {
-        display: block;
-      }
-    }
-  }
-}
+} 
 .btnCloseModal{
   background: none;
   border: none;
+}
+
+
+  .btnDrop{
+    background: $primary;
+    color: white;
+    border: none;
+    padding: 14px 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+
+    &:hover{
+      background: $secondary;
+      color: black;
+      border-radius: 0;
+      border-top-left-radius: $borderRadiusBtn;
+      border-top-right-radius: $borderRadiusBtn;
+    }
+    &:focus{
+      background: $secondary;
+      color: black;
+    }
+  }       
+  .drop{
+      .pop{
+        display: flex;
+        .fa-chevron-up{
+          display: none;
+        }
+        &:hover{
+          .fa-chevron-down{
+            display: none;
+          }
+          .fa-chevron-up{
+            display: block;
+          }
+        }
+        &:focus{
+          .fa-chevron-down{
+            display: none;
+          }
+          .fa-chevron-up{
+            display: block; 
+          }
+          .drop__content{
+            display: block;
+          }
+         
+        }
+       
+      }
+      &:hover{
+        .drop__content{
+            display: block;
+        }
+      }
+      &:focus{
+        .drop__content{
+          display: block;
+      }
+      }
+      .drop__content{
+        display: none;
+      }
+      .drop__content-btn{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    
+
+
+
+.pop{
+  &:hover{
+    border-radius: 0;
+    border-top-left-radius: $borderRadiusBtn;
+    border-top-right-radius: $borderRadiusBtn;
+    .name{
+      border-bottom-left-radius: $borderRadiusBtn;
+      border-bottom-right-radius: $borderRadiusBtn;
+    }
+  }
+
 }

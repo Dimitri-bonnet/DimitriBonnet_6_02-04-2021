@@ -5,7 +5,6 @@ class PagePhotographer {
     this.photographer = {};
     this.medias = [];
     this.sortedMedias = [];
-    this.modal = new Modal();
     this.slider = new Slider();
   }
   async filterMedias() {
@@ -31,7 +30,9 @@ class PagePhotographer {
   displayItemMedias() {
     this.medias.forEach((m) => {
       m.displayItemMedias();
+      /* this.openModalSlider() */
     });
+    
   }
   displayMediasSlider() {
     this.medias.forEach((m) => {
@@ -47,62 +48,74 @@ class PagePhotographer {
     stickyBannerLikes.append(totalLikes);
   }
   openModalSlider() {
-    const modal = document.querySelector(".bgGround");
-    console.log(modal);
     const medias = document.querySelectorAll(".media");
     medias.forEach((m, index) => {
       m.addEventListener("click", (e) => {
-        this.modal.lauchModal(e, this.slider);
         this.slider.findIndex(index);
       });
       m.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
-          this.modal.lauchModal(e, this.slider);
-          this.slider.findIndex(index);
+          this.slider.findIndex(index)
         }
       });
     });
   }
 
   /* SORT */
-  sortByPop() {
-    const btnSortLikes = document.querySelector(".pop");
-    const openModal = document.querySelectorAll(".media")
-    btnSortLikes.addEventListener("click", () => {
-      this.removeMedia();
-      const i = this.medias.sort((a, b) => {
-        return b.likes - a.likes;
-      });
-      this.sortedMedias = i
-      console.log(this.sortedMedias);
-      this.sortedMedias.forEach((m) => {
-        m.displayItemMedias()
-    
+  sortBy(){
+    const btnsSort = document.querySelectorAll(".sort")
+    console.log(btnsSort);
+    btnsSort.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        this.removeMedia()
+        if(e.target.classList.contains("pop")){
+          console.log('pop');
+          const result = this.medias.sort((a, b ) => {
+            return b.likes - a.likes
+          })
+          this.sortedMedias = result
+        } else if (e.target.classList.contains("date")){
+          console.log("date");
+          const result =   this.medias.sort((a, b) =>  new Date(b.date) - new Date(a.date));
+          this.sortedMedias = result
+
+        } else if (e.target.classList.contains("name")){
+          console.log('name');
+          const result = this.medias.sort((a, b) => a.title.localeCompare(b.title));
+          this.sortedMedias = result
+        }
+        this.sortedMedias.forEach((m) => {
+          m.displayItemMedias()
+          m.displayItemMediasSlider()
+        })
+        const medias = document.querySelectorAll(".media")
+        console.log(medias);
+        medias.forEach((m, index) => {
+          m.addEventListener("click", (e) => {
+            console.log(index);
+            console.log(medias);
+            this.slider.findIndex(index);
+          });
+          m.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+              this.slider.findIndex(index)
+            }
+          });
+        });
       })
-      console.log(openModal);
-    });
+    })
   }
-  sortByName() {
-    const btnSortName = document.querySelector(".name");
-    btnSortName.addEventListener("click", () => {
-      this.removeMedia();
-      this.medias.sort((a, b) => a.title.localeCompare(b.title));
-      this.displayItemMedias();
-    });
-  }
-  sortByDate() {
-    const btnSortDate = document.querySelector(".date");
-    btnSortDate.addEventListener("click", () => {
-      this.removeMedia();
-      this.medias.sort((a, b) => new Date(b.date) - new Date(a.date));
-      this.displayItemMedias();
-    });
-  }
+
   removeMedia() {
     const medias = document.querySelectorAll(".media");
+    const mediasSlider = document.querySelectorAll(".carouselMedias__item")
+    console.log(mediasSlider);
     medias.forEach((m) => {
       m.remove();
     });
+    mediasSlider.forEach((m) => {
+      m.remove();
+    })
   }
   nextMediaSlider() {
     const nextMedia = document.querySelector(".fa-chevron-right");
@@ -132,12 +145,88 @@ class PagePhotographer {
   pagePhotographer.displayMediasSlider();
   pagePhotographer.totalLikes();
   /* SORT */
-  pagePhotographer.sortByPop();
-  pagePhotographer.sortByName();
-  pagePhotographer.sortByDate();
+  pagePhotographer.sortBy()
   /* SLIDER */
   pagePhotographer.openModalSlider();
   pagePhotographer.nextMediaSlider();
   pagePhotographer.previousMediaSlider();
   pagePhotographer.closeSlider();
 })();
+/* sortByPop() {
+  const btnSortLikes = document.querySelector(".pop");
+  const openModal = document.querySelectorAll(".media")
+  btnSortLikes.addEventListener("click", () => {
+    this.removeMedia();
+    const i = this.medias.sort((a, b) => {
+      return b.likes - a.likes;
+    });
+    this.sortedMedias = i
+    this.sortedMedias.forEach((m) => {
+      m.displayItemMedias()
+      m.displayItemMediasSlider()
+      })
+      console.log(this.sortedMedias);
+      const medias = document.querySelectorAll(".media")
+      console.log(medias);
+      medias.forEach((m, index) => {
+        m.addEventListener("click", (e) => {
+          console.log(index);
+          console.log(medias);
+          this.slider.findIndex(index);
+        });
+        m.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            this.slider.findIndex(index)
+          }
+        });
+      });
+  });
+}
+sortByName() {
+  const btnSortName = document.querySelector(".name");
+  btnSortName.addEventListener("click", () => {
+    this.removeMedia();
+    this.medias.sort((a, b) => a.title.localeCompare(b.title));
+    console.log(this.sortedMedias);
+    this.displayItemMedias();
+    this.displayMediasSlider();
+    const medias = document.querySelectorAll(".media")
+    console.log(medias);
+    medias.forEach((m, index) => {
+      m.addEventListener("click", (e) => {
+        console.log(index);
+        console.log(medias);
+        this.slider.findIndex(index);
+      });
+      m.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          this.slider.findIndex(index)
+        }
+      });
+    });
+   
+    
+  });
+}
+sortByDate() {
+  const btnSortDate = document.querySelector(".date");
+  btnSortDate.addEventListener("click", () => {
+    this.removeMedia();
+    this.medias.sort((a, b) => new Date(b.date) - new Date(a.date));
+    this.displayItemMedias();
+    this.displayMediasSlider();
+    const medias = document.querySelectorAll(".media")
+    medias.forEach((m, index) => {
+      m.addEventListener("click", (e) => {
+        console.log(index);
+        console.log(medias);
+        this.slider.findIndex(index);
+      });
+      m.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          this.slider.findIndex(index)
+        }
+      });
+    });
+  });
+} */

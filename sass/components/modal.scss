@@ -14,8 +14,8 @@
     z-index: 6;
     border-radius: 4px;
     min-width: 300px;
-    width: 60vw;
-    max-width: 500px;
+   /*  width: 60vw; */
+    /* max-width: 500px; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -81,13 +81,13 @@
           &__medias {
             img {
               min-width: 200px;
-              width: 100%;
+              width: 350px;
               height: 500px;
               object-fit: cover;
             }
             video{
               min-width: 200px;
-              width: 100%;
+              width: 350px;
               height: 500px;
               object-fit: cover;
             }
