@@ -84,9 +84,12 @@ class Photographer {
 
   createphotographerBanner = () => {
     const bannerName = document.querySelector(
-      ".photographerBanner__info-name h1"
+      ".photographerBanner__info-name "
     );
-    bannerName.append(this.name);
+    const name = document.createElement('h1')
+    name.classList.add("mr-2")
+    name.append(this.name)
+    bannerName.prepend(name);
     const bannerLocation = document.querySelector(
       ".photographerBanner__info-country"
     );
@@ -95,9 +98,11 @@ class Photographer {
       ".photographerBanner__info-tagline"
     );
     bannerTagline.append(this.tagline);
-    const bannerImg = document.querySelector(".photographerBanner__img img");
-    bannerImg.src = `../assets/Photographers ID Photos/${this.portrait}`;
-    bannerImg.alt = `${this.name}`;
+    const bannerImg = document.querySelector(".photographerBanner__img");
+    const img = document.createElement("img") 
+    img.src = `../assets/Photographers ID Photos/${this.portrait}`;
+    img.alt = `${this.name}`;
+    bannerImg.append(img)
     const bannerLabels = document.querySelector(
       ".photographerBanner__info-labels"
     );
@@ -116,7 +121,9 @@ class Photographer {
     stickyBannerPrice.append(this.price + "€" + "/jour");
     /* Modal contact */
     const modalContactName = document.querySelector(".modal__name");
-    modalContactName.append(this.name);
+    const nameModal = document.createElement("h2")
+    nameModal.append(this.name)
+    modalContactName.append(nameModal);
     modalContactName.ariaLabel = `contact me ${this.name}`;
     const modalContactContent = document.querySelector(".modal__content-form");
     modalContactContent.ariaLabel = `contact me ${this.name}`;

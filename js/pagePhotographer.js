@@ -6,6 +6,7 @@ class PagePhotographer {
     this.medias = [];
     this.sortedMedias = [];
     this.slider = new Slider();
+    this.contactForm = new ContactForm()
   }
   async filterMedias() {
     const service = new Service();
@@ -24,20 +25,15 @@ class PagePhotographer {
       (photographer) => photographer.id == photographerId
     )[0];
   }
+
+  displayAllMedia(){
+    this.medias.forEach((m) => {
+        m.displayItemMedias()
+        m.displayItemMediasSlider()
+    })
+  }
   displayPhotographerBanner() {
     this.photographer.createphotographerBanner();
-  }
-  displayItemMedias() {
-    this.medias.forEach((m) => {
-      m.displayItemMedias();
-      /* this.openModalSlider() */
-    });
-    
-  }
-  displayMediasSlider() {
-    this.medias.forEach((m) => {
-      m.displayItemMediasSlider();
-    });
   }
   totalLikes() {
     let totalLikes = 0;
@@ -52,6 +48,7 @@ class PagePhotographer {
     medias.forEach((m, index) => {
       m.addEventListener("click", (e) => {
         this.slider.findIndex(index);
+       /*  this.slider.keyPress() */
       });
       m.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
@@ -59,12 +56,22 @@ class PagePhotographer {
         }
       });
     });
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 27) {
+        this.slider.closeSlider();
+      } else if (e.keyCode === 37) {
+        this.slider.previousMedia();
+      } else if (e.keyCode === 39) {
+        this.slider.nextMedia();
+      } else if (e.keyCode === 27) {
+        this.slider.closeSlider();
+      }
+    });
   }
-
+ 
   /* SORT */
   sortBy(){
     const btnsSort = document.querySelectorAll(".sort")
-    console.log(btnsSort);
     btnsSort.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         this.removeMedia()
@@ -78,7 +85,6 @@ class PagePhotographer {
           console.log("date");
           const result =   this.medias.sort((a, b) =>  new Date(b.date) - new Date(a.date));
           this.sortedMedias = result
-
         } else if (e.target.classList.contains("name")){
           console.log('name');
           const result = this.medias.sort((a, b) => a.title.localeCompare(b.title));
@@ -92,8 +98,8 @@ class PagePhotographer {
         console.log(medias);
         medias.forEach((m, index) => {
           m.addEventListener("click", (e) => {
-            console.log(index);
-            console.log(medias);
+            /* console.log(index);
+            console.log(medias); */
             this.slider.findIndex(index);
           });
           m.addEventListener("keypress", (e) => {
@@ -117,14 +123,16 @@ class PagePhotographer {
       m.remove();
     })
   }
+  /* SLIDER */
   nextMediaSlider() {
-    const nextMedia = document.querySelector(".fa-chevron-right");
-    nextMedia.addEventListener("click", () => {
+    const nextMedia = document.querySelector(".nextMedia");
+    nextMedia.addEventListener('click', () => {
       this.slider.nextMedia();
-    });
+    })
+  
   }
   previousMediaSlider() {
-    const previousMedia = document.querySelector(".fa-chevron-left");
+    const previousMedia = document.querySelector(".previousMedia");
     previousMedia.addEventListener("click", () => {
       this.slider.previousMedia();
     });
@@ -135,14 +143,17 @@ class PagePhotographer {
       this.slider.closeSlider();
     });
   }
+  /* FORM */
+  submitForm() {
+    this.contactForm.submitForm()
+  }
 }
 (async function () {
   const pagePhotographer = new PagePhotographer();
   await pagePhotographer.filterPhotographer();
   await pagePhotographer.filterMedias();
   pagePhotographer.displayPhotographerBanner();
-  pagePhotographer.displayItemMedias();
-  pagePhotographer.displayMediasSlider();
+  pagePhotographer.displayAllMedia()
   pagePhotographer.totalLikes();
   /* SORT */
   pagePhotographer.sortBy()
@@ -151,82 +162,7 @@ class PagePhotographer {
   pagePhotographer.nextMediaSlider();
   pagePhotographer.previousMediaSlider();
   pagePhotographer.closeSlider();
+  /* FORM */
+  pagePhotographer.submitForm()
+  
 })();
-/* sortByPop() {
-  const btnSortLikes = document.querySelector(".pop");
-  const openModal = document.querySelectorAll(".media")
-  btnSortLikes.addEventListener("click", () => {
-    this.removeMedia();
-    const i = this.medias.sort((a, b) => {
-      return b.likes - a.likes;
-    });
-    this.sortedMedias = i
-    this.sortedMedias.forEach((m) => {
-      m.displayItemMedias()
-      m.displayItemMediasSlider()
-      })
-      console.log(this.sortedMedias);
-      const medias = document.querySelectorAll(".media")
-      console.log(medias);
-      medias.forEach((m, index) => {
-        m.addEventListener("click", (e) => {
-          console.log(index);
-          console.log(medias);
-          this.slider.findIndex(index);
-        });
-        m.addEventListener("keypress", (e) => {
-          if (e.key === "Enter") {
-            this.slider.findIndex(index)
-          }
-        });
-      });
-  });
-}
-sortByName() {
-  const btnSortName = document.querySelector(".name");
-  btnSortName.addEventListener("click", () => {
-    this.removeMedia();
-    this.medias.sort((a, b) => a.title.localeCompare(b.title));
-    console.log(this.sortedMedias);
-    this.displayItemMedias();
-    this.displayMediasSlider();
-    const medias = document.querySelectorAll(".media")
-    console.log(medias);
-    medias.forEach((m, index) => {
-      m.addEventListener("click", (e) => {
-        console.log(index);
-        console.log(medias);
-        this.slider.findIndex(index);
-      });
-      m.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-          this.slider.findIndex(index)
-        }
-      });
-    });
-   
-    
-  });
-}
-sortByDate() {
-  const btnSortDate = document.querySelector(".date");
-  btnSortDate.addEventListener("click", () => {
-    this.removeMedia();
-    this.medias.sort((a, b) => new Date(b.date) - new Date(a.date));
-    this.displayItemMedias();
-    this.displayMediasSlider();
-    const medias = document.querySelectorAll(".media")
-    medias.forEach((m, index) => {
-      m.addEventListener("click", (e) => {
-        console.log(index);
-        console.log(medias);
-        this.slider.findIndex(index);
-      });
-      m.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-          this.slider.findIndex(index)
-        }
-      });
-    });
-  });
-} */

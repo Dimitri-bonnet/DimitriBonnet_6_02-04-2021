@@ -3,7 +3,6 @@
 .bgGround {
   display: none;
   position: fixed;
-  z-index: 5;
   left: 0;
   top: 0;
   height: 100%;
@@ -14,8 +13,6 @@
     z-index: 6;
     border-radius: 4px;
     min-width: 300px;
-   /*  width: 60vw; */
-    /* max-width: 500px; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

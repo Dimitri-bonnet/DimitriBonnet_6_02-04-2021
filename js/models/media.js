@@ -110,8 +110,8 @@ class Image {
   displayItemMediasSlider() {
     const containerSlider = document.querySelector(".carouselMedias__medias");
     const templateImageSlider = `
-      <div class="carouselMedias__item">
-        <img src="/assets/${this.photographerName}/${this.img}" aria-label="${this.title}" alt="${this.title}">
+      <div class="carouselMedias__item" >
+        <img src="/assets/${this.photographerName}/${this.img}" tabindex="0" aria-label="${this.title}" alt="${this.title}">
         <p>${this.title}</p>
       </div>
     `;

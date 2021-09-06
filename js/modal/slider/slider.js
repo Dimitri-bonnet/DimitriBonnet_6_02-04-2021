@@ -35,4 +35,18 @@ class Slider {
   closeSlider() {
     this.index = 0;
   }
+  keyPress() {
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 27) {
+        this.closeSlider();
+      } else if (e.keyCode === 37) {
+        this.previousMedia();
+      } else if (e.keyCode === 39) {
+        this.nextMedia();
+      } else if (e.keyCode === 27) {
+        this.closeSlider();
+      }
+    });
+  }
+
 }
