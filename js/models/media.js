@@ -17,7 +17,7 @@ class Video {
     const itemMedia = document.createElement("div")
     itemMedia.classList.add("media")
     const videoMedia = document.createElement("video")
-    videoMedia.classList.add("modalOpenMedia")
+    videoMedia.classList.add("modalOpenMedia", "ignoreTab")
     videoMedia.setAttribute("aria-label", `${this.title}, closeup view`)
     videoMedia.setAttribute("tabindex", "0")
     const sourceVideo = document.createElement("source");
@@ -26,13 +26,20 @@ class Video {
       const modal = new Modal()
       modal.lauchModal(e)
     })
+    videoMedia.addEventListener("keypress", (e) => {    
+      if(e.key === "Enter"){
+        const modal = new Modal()
+        modal.lauchModal(e)
+      }
+
+    })
     const mediaInfo = document.createElement("div")
     mediaInfo.classList.add("media__info")
     const titleMedia = document.createElement("p")
     titleMedia.classList.add("mr-2")
     titleMedia.append(this.title)
     const mediaInfoInfo = document.createElement("div")
-    mediaInfoInfo.classList.add("media__info-info")
+    mediaInfoInfo.classList.add("media__info-info", "ignoreTab")
     mediaInfoInfo.setAttribute("aria-label", "likes")
     mediaInfoInfo.setAttribute("tabindex","0")
     const likes = document.createElement("p")
@@ -79,7 +86,7 @@ class Image {
     const itemMedia = document.createElement("div");
     itemMedia.classList.add("media");
     const imgMedia = document.createElement("img");
-    imgMedia.classList.add("modalOpenMedia");
+    imgMedia.classList.add("modalOpenMedia","ignoreTab");
     imgMedia.setAttribute("aria-label", `${this.title}, closeup view`);
     imgMedia.setAttribute("tabindex", "0");
     imgMedia.src = `/assets/${this.photographerName}/${this.img}`;
@@ -88,13 +95,20 @@ class Image {
       const modal = new Modal()
       modal.lauchModal(e)
     })
+    imgMedia.addEventListener("keypress", (e) => {    
+      if(e.key === "Enter"){
+        const modal = new Modal()
+        modal.lauchModal(e)
+      }
+
+    })
     const mediaInfo = document.createElement("div");
     mediaInfo.classList.add("media__info");
     const mediaTitle = document.createElement("p");
     mediaTitle.classList.add("mr-2");
     mediaTitle.append(this.title)
     const mediaInfo2 = document.createElement("div")
-    mediaInfo2.classList.add("media__info-info")
+    mediaInfo2.classList.add("media__info-info", "ignoreTab")
     mediaInfo2.setAttribute("aria-label", "likes")
     mediaInfo2.setAttribute("tabindex", "0")
     const mediaLike = document.createElement("p")

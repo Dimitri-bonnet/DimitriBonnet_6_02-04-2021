@@ -3,9 +3,12 @@ class Modal {
     this.modal =  document.querySelector(".bgGround")
   }
   lauchModal(e) {
-    const modal = document.querySelector(".bgGround"); //false
+    const ignoreTab = document.querySelectorAll(".ignoreTab")
+    ignoreTab.forEach((el) => {
+      el.setAttribute("tabindex", "-1")
+    })
+    const modal = document.querySelector(".bgGround");
     const clossModal = document.querySelectorAll(".modal__close");
-    const modalContent = document.querySelector(".modal__content"); //true
     const contentModalForm = document.querySelector(".modal__content-form");
     const contentModalMedia = document.querySelector(".modal__content-media");
     const containerPhotographerSelected = document.querySelector(".containerPhotographerSelected");
@@ -38,6 +41,10 @@ class Modal {
   }
   closeModal() {
    this.modal.style.display = "none";
+   const ignoreTab = document.querySelectorAll(".ignoreTab")
+   ignoreTab.forEach((el) => {
+     el.setAttribute("tabindex", "0   ")
+   })
   }
   
 }

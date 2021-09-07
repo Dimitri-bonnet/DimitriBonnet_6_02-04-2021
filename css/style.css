@@ -168,6 +168,10 @@
   color: black;
 }
 
+.drop {
+  position: absolute;
+  left: 100px;
+}
 .drop .pop {
   display: flex;
 }
@@ -202,91 +206,6 @@
 
 .drop__content {
   display: none;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  font-family: HelvNeueOrange, Helvetica Neue, Helvetica, Arial, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-weight: 700;
-  color: #000;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-color: transparent;
-  border: 0.125rem solid transparent;
-  padding: calc(.5rem - 1px) 1.125rem calc(.5rem + 1px);
-  font-size: 1rem;
-  line-height: 1.25;
-  border-radius: 0;
-  transition: outline-offset 0.15s ease-in-out;
-  outline-offset: 0.25rem;
-}
-
-.dropdown-toggle {
-  padding: 0.5rem 0.625rem;
-  color: #000;
-  white-space: nowrap;
-  background-color: #fff;
-  border-color: #ccc;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  display: none;
-  float: left;
-  min-width: 10rem;
-  padding: 0;
-  margin: -2px 0 0;
-  font-size: 1rem;
-  color: #000;
-  text-align: left;
-  list-style: none;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 0.125rem solid #ccc;
-}
-
-li {
-  display: list-item;
-  text-align: -webkit-match-parent;
-}
-
-.dropdown-item {
-  display: block;
-  width: 100%;
-  padding: 0.625rem 0.625rem;
-  clear: both;
-  font-weight: 700;
-  color: #000;
-  text-align: inherit;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: transparent;
-  border: 0;
-}
-
-.dropdown-toggle::after {
-  display: inline-flex;
-  align-self: center;
-  margin-left: 0.625rem;
-  content: "";
-  border-top: 0.4375rem solid;
-  border-right: 0.4375rem solid transparent;
-  border-bottom: 0;
-  border-left: 0.4375rem solid transparent;
-  transform: translateY(0.0625rem);
 }
 
 /* COLORS */

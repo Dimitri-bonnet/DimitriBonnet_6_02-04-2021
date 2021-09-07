@@ -13,10 +13,10 @@
 </head>
 
 <body>
-  <div class="containerPhotographerSelected" aria-hidden="false">
+  <div class="containerPhotographerSelected" aria-hidden="true" >
     <header>
       <div class="containerPhotographerSelected__brand">
-        <a href="/">
+        <a href="/" class="ignoreTab">
           <img src="https://nsa40.casimages.com/img/2021/04/05/210405122303696675.png" alt="Fisheye Home page" />
         </a>
       </div>
@@ -25,7 +25,7 @@
       <div class="photographerBanner">
         <div class="photographerBanner__info">
           <div class="photographerBanner__info-name">
-            <button type="button" class="btn modalOpenForm" aria-label="Contact me">
+            <button type="button" class="btn modalOpenForm ignoreTab" aria-label="Contact me">
               Contactez-moi
             </button>
           </div>
@@ -39,41 +39,17 @@
         <div class="mr-2 m-2">
           <p>Trier par</p>
         </div>
-        <!-- <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown button
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </div> -->
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-            My account
-            <i class="fas fa-chevron-up ml-2"></i>
-            <i class="fas fa-chevron-down ml-2"></i>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">My cart</a></li>
-            <li><a class="dropdown-item" href="#">My orders</a></li>
-            <li><a class="dropdown-item" href="#">My details</a></li>
-            <li role="separator" class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Log out</a></li>
-          </ul>
-        </div>
-        <div class="drop" tabindex="0">
-          <button class="btnDrop sort pop" tabindex="1">
+        <div class="drop" tabindex="0" role="listbox" id="listbox1" >
+          <button class="btnDrop sort pop ignoreTab" >
             Popularité
             <i class="fas fa-chevron-up ml-2"></i>
             <i class="fas fa-chevron-down ml-2"></i>
           </button>
           <div class="drop__content">
-            <button class="btnDrop sort date">
+            <button class="btnDrop sort date" role="option" id="listbox1-1">
               Date
             </button>
-            <button class="btnDrop sort name">
+            <button class="btnDrop sort name" role="option" id="listbox1-2">
               Titre
             </button>
           </div>
