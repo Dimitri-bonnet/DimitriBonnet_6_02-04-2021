@@ -68,7 +68,7 @@ class PagePhotographer {
       }
     });
   }
- 
+
   /* SORT */
   sortByselect() {
     const selectSort = document.querySelector("select")
@@ -87,7 +87,7 @@ class PagePhotographer {
         console.log('select title');
         const result = this.medias.sort((a, b) => a.title.localeCompare(b.title));
         this.sortedMedias = result
-       
+
       }
       this.sortedMedias.forEach((m) => {
         m.displayItemMedias()
@@ -159,5 +159,4 @@ class PagePhotographer {
   pagePhotographer.closeSlider();
   /* FORM */
   pagePhotographer.submitForm()
-
 })();
