@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,7 +12,7 @@
 </head>
 
 <body>
-  <div class="containerPhotographerSelected" aria-hidden="true" >
+  <div class="containerPhotographerSelected">
     <header>
       <div class="containerPhotographerSelected__brand">
         <a href="/" class="ignoreTab">
@@ -36,10 +35,7 @@
         <div class="photographerBanner__img"></div>
       </div>
       <div class="containerPhotographerSelected__sort">
-        <div class="mr-2 m-2">
-          <p>Trier par</p>
-        </div>
-        <div class="drop" tabindex="0" role="listbox" id="listbox1" >
+        <!-- <div class="drop ignoreTab" tabindex="0" role="listbox" id="listbox1" >
           <button class="btnDrop sort pop ignoreTab" >
             Popularité
             <i class="fas fa-chevron-up ml-2"></i>
@@ -53,74 +49,86 @@
               Titre
             </button>
           </div>
+        </div> -->
+        <div>
+          <label for="order" id="orderBy">Trier par </label>
+          <select id="order" class="ignoreTab" aria-label="Order by" aria-labelledby="orderBy">
+            <option value="pop">Popularité</option>
+            <option value="date">Date</option>
+            <option value="title">Titre</option>
+          </select>
         </div>
       </div>
       <div class="containerPhotographerSelected__medias">
         <!-- Here : template Media -->
       </div>
-    </main>
-  </div>
-  <div class="bgGround">
-    <div class="modal" aria-hidden="true">
-      <div class="modal__content">
-        <button class="modal__close contact btnCloseModal" id="dialogClose" aria-label="Close Contact form">
-          <i class="fas fa-times"></i>
-        </button>
-        <div class="modal__content-form" role="dialog" aria-label="Contacte me">
-          <h2 class="modal__name">Contactez-moi</h2>
-          <form class="formContact" id="formContact">
-            <div class="formContact__item mt-2">
-              <label for="firstName" >Prénom</label>
-              <input type="text" id="firstName" name="firstName" />
-            </div>
-            <div class="formContact__item mt-2">
-              <label for="lastName" >Nom</label>
-              <input type="text" id="lastName" name="lastName"  />
-            </div>
-            <div class="formContact__item mt-2">
-              <label for="email" >Email</label>
-              <input type="text" id="email" name="email" />
-            </div>
-            <div class="formContact__item mt-2">
-              <label for="yourMessage">Votre message</label>
-              <textarea id="yourMessage" name="yourMessage" cols="30" rows="10"></textarea>
-            </div>
-            <div class="formContact__btn">
-              <button class="btn my-2" aria-label="Send">Envoyer</button>
-            </div>
-          </form>
+      <div class="stickyBanner">
+        <div class="stickyBanner__like">
+          <p class="mr-2"></p>
+          <i class="fas fa-heart"></i>
         </div>
-        <div class="modal__content-media" aria-label="image closeup view">
-          <button class="modal__close medias btnCloseModal" aria-label="Close dialog">
-            <i class="fas fa-times"></i>
-          </button>
-          <div class="carouselMedias">
-            <button class="carouselMedias__chevron previousMedia" aria-label="Previous image">
-              <i class="fas fa-chevron-left"></i>
+        <div class="stickyBanner__price">
+          <p></p>
+        </div>
+      </div>
+      <div class="stickyBtn ">
+        <button class="btn modalOpenForm"  aria-label="Contact-me ">Contatez-moi</button>
+      </div>
+      <div class="bgGround">
+        <div class="modal">
+          <div class="modal__content">
+            <button class="modal__close contact btnCloseModal" id="dialogClose" aria-label="Close contact form" >
+              <i class="fas fa-times"></i>
             </button>
-            <div class="carouselMedias__medias">
-              <!-- Here : template media slider -->
+            <div class="modal__content-form" role="dialog" aria-labelledby="contact" >
+              <h2 class="modal__name" id="contact">Contactez-moi</h2>
+              <form class="formContact" id="formContact">
+                <div class="formContact__item mt-2">
+                  <label for="firstName" id="first-name" >Prénom</label>
+                  <input type="text" id="firstName" name="firstName" aria-labelledby="first-name"/>
+                </div>
+                <div class="formContact__item mt-2">
+                  <label for="lastName" id="last-name">Nom</label>
+                  <input type="text" id="lastName" name="lastName" aria-labelledby="last-name" />
+                </div>
+                <div class="formContact__item mt-2">
+                  <label for="email" id="emailForm">Email</label>
+                  <input type="text" id="email" name="email" aria-labelledby="emailForm"/>
+                </div>
+                <div class="formContact__item mt-2">
+                  <label for="yourMessage" id="urMessage">Votre message</label>
+                  <textarea id="yourMessage" name="yourMessage" cols="30" rows="10" aria-labelledby="urMessage"></textarea>
+                </div>
+                <div class="formContact__btn">
+                  <button class="btn my-2" aria-label="Send">Envoyer</button>
+                </div>
+              </form>
             </div>
-            <button class="carouselMedias__chevron nextMedia" aria-label="Next image">
-              <i class="fas fa-chevron-right"></i>
-            </button>
+            <div class="modal__content-media" aria="image closeup view">
+              <button class="modal__close medias btnCloseModal" aria-label="Close dialog">
+                <i class="fas fa-times"></i>
+              </button>
+              <div class="carouselMedias">
+                <button class="carouselMedias__chevron previousMedia" aria-label="Previous image">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carouselMedias__medias">
+                  <!-- Here : template media slider -->
+                </div>
+                <button class="carouselMedias__chevron nextMedia" aria-label="Next image">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   </div>
-  <div class="stickyBanner">
-    <div class="stickyBanner__like">
-      <p class="mr-2"></p>
-      <i class="fas fa-heart"></i>
-    </div>
-    <div class="stickyBanner__price">
-      <p></p>
-    </div>
-  </div>
-  <div class="stickyBtn ">
-    <button class="btn modalOpenForm" aria-label="Contact-me">Contatez-moi</button>
-  </div>
+  <footer>
+    
+  </footer>
+  
   <!-- SCRIPT -->
   <script src="./js/modal/modal.js"></script>
   <script src="/js/modal/slider/slider.js"></script>

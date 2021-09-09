@@ -26,10 +26,10 @@ class PagePhotographer {
     )[0];
   }
 
-  displayAllMedia(){
+  displayAllMedia() {
     this.medias.forEach((m) => {
-        m.displayItemMedias()
-        m.displayItemMediasSlider()
+      m.displayItemMedias()
+      m.displayItemMediasSlider()
     })
   }
   displayPhotographerBanner() {
@@ -48,7 +48,7 @@ class PagePhotographer {
     medias.forEach((m, index) => {
       m.addEventListener("click", (e) => {
         this.slider.findIndex(index);
-       /*  this.slider.keyPress() */
+        /*  this.slider.keyPress() */
       });
       m.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
@@ -70,45 +70,40 @@ class PagePhotographer {
   }
  
   /* SORT */
-  sortBy(){
-    const btnsSort = document.querySelectorAll(".sort")
-    btnsSort.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        this.removeMedia()
-        if(e.target.classList.contains("pop")){
-          console.log('pop');
-          const result = this.medias.sort((a, b ) => {
-            return b.likes - a.likes
-          })
-          this.sortedMedias = result
-        } else if (e.target.classList.contains("date")){
-          console.log("date");
-          const result =   this.medias.sort((a, b) =>  new Date(b.date) - new Date(a.date));
-          this.sortedMedias = result
-        } else if (e.target.classList.contains("name")){
-          console.log('name');
-          const result = this.medias.sort((a, b) => a.title.localeCompare(b.title));
-          this.sortedMedias = result
-        }
-        this.sortedMedias.forEach((m) => {
-          m.displayItemMedias()
-          m.displayItemMediasSlider()
+  sortByselect() {
+    const selectSort = document.querySelector("select")
+    selectSort.addEventListener("change", () => {
+      this.removeMedia()
+      if (selectSort.value === "pop") {
+        console.log('select pop');
+        const result = this.medias.sort((a, b) => {
+          return b.likes - a.likes
         })
-        const medias = document.querySelectorAll(".media")
-        console.log(medias);
-        medias.forEach((m, index) => {
-          m.addEventListener("click", (e) => {
-            /* console.log(index);
-            console.log(medias); */
-            this.slider.findIndex(index);
-          });
-          m.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") {
-              this.slider.findIndex(index)
-            }
-          });
-        });
+        this.sortedMedias = result
+      } else if (selectSort.value === "date") {
+        const result = this.medias.sort((a, b) => new Date(b.date) - new Date(a.date));
+        this.sortedMedias = result
+      } else if (selectSort.value === "title") {
+        console.log('select title');
+        const result = this.medias.sort((a, b) => a.title.localeCompare(b.title));
+        this.sortedMedias = result
+       
+      }
+      this.sortedMedias.forEach((m) => {
+        m.displayItemMedias()
+        m.displayItemMediasSlider()
       })
+      const medias = document.querySelectorAll(".media")
+      medias.forEach((m, index) => {
+        m.addEventListener("click", (e) => {
+          this.slider.findIndex(index);
+        });
+        m.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            this.slider.findIndex(index)
+          }
+        });
+      });
     })
   }
 
@@ -129,7 +124,7 @@ class PagePhotographer {
     nextMedia.addEventListener('click', () => {
       this.slider.nextMedia();
     })
-  
+
   }
   previousMediaSlider() {
     const previousMedia = document.querySelector(".previousMedia");
@@ -156,7 +151,7 @@ class PagePhotographer {
   pagePhotographer.displayAllMedia()
   pagePhotographer.totalLikes();
   /* SORT */
-  pagePhotographer.sortBy()
+  pagePhotographer.sortByselect()
   /* SLIDER */
   pagePhotographer.openModalSlider();
   pagePhotographer.nextMediaSlider();
@@ -164,5 +159,5 @@ class PagePhotographer {
   pagePhotographer.closeSlider();
   /* FORM */
   pagePhotographer.submitForm()
-  
+
 })();

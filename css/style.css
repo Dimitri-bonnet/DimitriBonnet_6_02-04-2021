@@ -204,8 +204,15 @@
   flex-direction: column;
 }
 
-.drop__content {
-  display: none;
+select {
+  background: #901c1c;
+  color: white;
+  border: none;
+  padding: 14px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
 }
 
 /* COLORS */

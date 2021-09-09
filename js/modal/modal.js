@@ -11,12 +11,11 @@ class Modal {
     const clossModal = document.querySelectorAll(".modal__close");
     const contentModalForm = document.querySelector(".modal__content-form");
     const contentModalMedia = document.querySelector(".modal__content-media");
-    const containerPhotographerSelected = document.querySelector(".containerPhotographerSelected");
-    containerPhotographerSelected .setAttribute("aria-hidden", "true")
-    modal.setAttribute("aria-hidden", "false")
-    modal.style.display = "flex";
-    modal.focus()
+    const modalContent = document.querySelector(".modal__content")
+    const btn = document.querySelector(".contact")
+    modal.style.display = "block";
     if (e.target.classList.contains("modalOpenForm")) {
+      btn.style.display =" block"
       contentModalMedia.style.display = "none";
       contentModalForm.style.display = "block";
       document.addEventListener("keydown", (e) => {
@@ -25,6 +24,7 @@ class Modal {
         }
       });
     } else if (e.target.classList.contains("modalOpenMedia")) {
+      btn.style.display ="none"
       contentModalForm.style.display = "none";
       contentModalMedia.style.display = " block";
       document.addEventListener("keydown", (e) => {

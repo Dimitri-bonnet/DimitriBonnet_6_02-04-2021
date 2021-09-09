@@ -20,8 +20,14 @@ class Video {
     videoMedia.classList.add("modalOpenMedia", "ignoreTab")
     videoMedia.setAttribute("aria-label", `${this.title}, closeup view`)
     videoMedia.setAttribute("tabindex", "0")
+    /* videoMedia.setAttribute("controls", "controls") */
     const sourceVideo = document.createElement("source");
-    sourceVideo.src = `/assets/${this.photographerName}/${this.video}`
+  /*   sourceVideo.src = `/assets/${this.photographerName}/${this.video}.vtt` */
+    const trackVideo = document.createElement("track")
+    trackVideo.setAttribute("kind", "captions")
+    trackVideo.setAttribute("scrlang", "fr")
+    trackVideo.setAttribute("label", "frensh__captions")
+    trackVideo.src = `/assets/${this.photographerName}/${this.video}`
     videoMedia.addEventListener("click",(e) => {
       const modal = new Modal()
       modal.lauchModal(e)
@@ -40,13 +46,13 @@ class Video {
     titleMedia.append(this.title)
     const mediaInfoInfo = document.createElement("div")
     mediaInfoInfo.classList.add("media__info-info", "ignoreTab")
-    mediaInfoInfo.setAttribute("aria-label", "likes")
-    mediaInfoInfo.setAttribute("tabindex","0")
+    /* mediaInfoInfo.setAttribute("aria-label", "likes")
+    mediaInfoInfo.setAttribute("tabindex","0") */
     const likes = document.createElement("p")
     likes.append(this.likes)
     const iconLikes = document.createElement("i")
     iconLikes.classList.add("fas","fa-heart","ml-2")
-    videoMedia.append(sourceVideo)
+    videoMedia.append(sourceVideo, trackVideo)
     mediaInfoInfo.append(likes, iconLikes)
     mediaInfo.append(titleMedia, mediaInfoInfo)
     itemMedia.append(videoMedia, mediaInfo)
@@ -59,7 +65,11 @@ class Video {
       <video controls class="modalOpenMedia" >
         <source src="/assets/${this.photographerName}/${this.video}"
           type="video/mp4">
-        Sorry, your browser doesn't support embedded videos.
+          <track default
+          kind="captions"
+          srclang="fr"
+          
+   Sorry, your browser doesn't support embedded videos.
         </video>
       <p>${this.title}</p>
     </div>
@@ -109,9 +119,11 @@ class Image {
     mediaTitle.append(this.title)
     const mediaInfo2 = document.createElement("div")
     mediaInfo2.classList.add("media__info-info", "ignoreTab")
-    mediaInfo2.setAttribute("aria-label", "likes")
-    mediaInfo2.setAttribute("tabindex", "0")
     const mediaLike = document.createElement("p")
+    mediaLike.classList.add("ignoreTab")
+    mediaLike.setAttribute("role","tabpanel")
+    mediaLike.setAttribute("aria-label", `likes`)
+    mediaLike.setAttribute("tabindex", "0")
     mediaLike.append(this.likes)
     const mediaLikeIcon = document.createElement("i")
     mediaLikeIcon.classList.add("fas", "fa-heart", "ml-2")

@@ -117,9 +117,15 @@ font-size: 12px;
     }
   }
 }
-.drop__content{
-  display: none;
+select{
+  background: $primary;
+  color: white;
+  border: none;
+  padding: 14px 12px;
+  border-radius: $borderRadiusBtn;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
 }
-
 
 

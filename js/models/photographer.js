@@ -59,17 +59,15 @@ class Photographer {
     const footerPhotographer = document.createElement("div");
     footerPhotographer.classList.add("photographer__footer");
     this.tags.forEach((tag) => {
-      const labelPhotographer = document.createElement("a");
       const spanLabel = document.createElement("span");
       spanLabel.addEventListener("click", () => {
         const hp = new Homepage();
         hp.filterBytag(tag);
         console.log(tag);
       });
-
-      spanLabel.append(labelPhotographer);
       spanLabel.setAttribute("aria-label", `${tag}`);
-      labelPhotographer.append("#" + tag);
+      spanLabel.setAttribute("role", "tabpanel")
+      spanLabel.append("#", `${tag}`)
       spanLabel.classList.add("btnLabel");
       footerPhotographer.append(spanLabel);
     });
@@ -99,19 +97,18 @@ class Photographer {
     );
     bannerTagline.append(this.tagline);
     const bannerImg = document.querySelector(".photographerBanner__img");
-    const img = document.createElement("img") 
+    const img = document.createElement("img")
     img.src = `../assets/Photographers ID Photos/${this.portrait}`;
     img.alt = `${this.name}`;
     bannerImg.append(img)
     const bannerLabels = document.querySelector(
       ".photographerBanner__info-labels"
     );
-  
+
     this.tags.forEach((tag) => {
-      const labelPhotographer = document.createElement("a");
       const spanLabel = document.createElement("span");
+      spanLabel.setAttribute("role", "tabpanel")
       spanLabel.setAttribute("aria-label", `${tag}`);
-      spanLabel.append(labelPhotographer);
       spanLabel.append("#" + tag);
       spanLabel.classList.add("btnLabel");
       bannerLabels.append(spanLabel);
