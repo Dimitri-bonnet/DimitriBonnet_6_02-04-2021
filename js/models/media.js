@@ -22,12 +22,12 @@ class Video {
     videoMedia.setAttribute("tabindex", "0")
     /* videoMedia.setAttribute("controls", "controls") */
     const sourceVideo = document.createElement("source");
-  /*   sourceVideo.src = `/assets/${this.photographerName}/${this.video}.vtt` */
+    sourceVideo.src = `/assets/${this.photographerName}/${this.video}`
     const trackVideo = document.createElement("track")
     trackVideo.setAttribute("kind", "captions")
     trackVideo.setAttribute("scrlang", "fr")
     trackVideo.setAttribute("label", "frensh__captions")
-    trackVideo.src = `/assets/${this.photographerName}/${this.video}`
+    trackVideo.src = `/assets/${this.photographerName}/${this.video}.vtt`
     videoMedia.addEventListener("click",(e) => {
       const modal = new Modal()
       modal.lauchModal(e)
