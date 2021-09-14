@@ -44,6 +44,12 @@ class Modal {
   closeModal() {
    this.modal.style.display = "none";
    const ignoreTab = document.querySelectorAll(".ignoreTab")
+   const form = document.getElementById("formContact")
+   form.reset()
+   const msgError = document.querySelectorAll(".errorForm p")
+   msgError.forEach((err) => {
+       err.remove()
+   })
    ignoreTab.forEach((el) => {
      el.setAttribute("tabindex", "0   ")
    })

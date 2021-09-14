@@ -18,7 +18,6 @@ class ContactForm {
             if (isValid) {
                 this.form.reset()
                 this.modal.closeModal()
-                console.log(formDataJson);
             }
         })
     }
