@@ -11,7 +11,7 @@ class Modal {
     const clossModal = document.querySelectorAll(".modal__close");
     const contentModalForm = document.querySelector(".modal__content-form");
     const contentModalMedia = document.querySelector(".modal__content-media");
-    const modalContent = document.querySelector(".modal__content")
+    const modalContent = document.querySelector(".modal__content")  
     const btn = document.querySelector(".contact")
     modal.style.display = "block";
     if (e.target.classList.contains("modalOpenForm")) {
@@ -33,10 +33,12 @@ class Modal {
         }
       });
     }
-    clossModal.forEach((btn) =>
+    clossModal.forEach((btn) => {
       btn.addEventListener("click", () => {
         this.closeModal();
       })
+    }
+     
     );
   }
   closeModal() {

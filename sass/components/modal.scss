@@ -13,6 +13,7 @@
     z-index: 6;
     border-radius: 4px;
     min-width: 300px;
+    /* width: 500px; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -56,6 +57,13 @@
           &__btn {
             button {
               padding: 14px 18px;
+            }
+          }
+          .errorForm {
+            p {
+              font-size: 12px;
+              font-weight: 800;
+              color: white;
             }
           }
         }

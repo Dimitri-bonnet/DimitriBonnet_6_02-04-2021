@@ -476,6 +476,7 @@ select {
   z-index: 6;
   border-radius: 4px;
   min-width: 300px;
+  /* width: 500px; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -518,6 +519,11 @@ select {
 }
 .bgGround .modal__content-form .formContact__btn button {
   padding: 14px 18px;
+}
+.bgGround .modal__content-form .formContact .errorForm p {
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
 }
 .bgGround .modal__content-media {
   padding: 20px;
