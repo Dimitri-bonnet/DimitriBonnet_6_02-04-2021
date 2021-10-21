@@ -15,6 +15,7 @@ class ContactForm {
             const formData = new FormData(e.target)
             const formDataJson = Object.fromEntries(formData.entries())
             const isValid = this.verifForm()
+            console.log(form);
             if (isValid) {
                 this.form.reset()
                 this.modal.closeModal()

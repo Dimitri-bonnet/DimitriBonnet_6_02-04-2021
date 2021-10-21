@@ -1,4 +1,5 @@
 const params = new URLSearchParams(window.location.search);
+console.log(params);
 const photographerId = params.get("");
 class PagePhotographer {
   constructor() {

@@ -10,7 +10,7 @@ class Photographer {
     this.tags = tags;
   }
   createPhotographerItem() {
-    const url = new URL(`http://127.0.0.1:5500/photographer.html?=${this.id}`);
+    const url = new URL(`${window.location}/photographer.html?=${this.id}`)
     /* DOM CONTAINER PHOTOGRAPHER ITEMS */
     const containerPhotographer = document.createElement("div");
     containerPhotographer.classList.add("photographer");
